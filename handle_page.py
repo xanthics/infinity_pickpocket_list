@@ -137,9 +137,9 @@ def init_options():
 
 	for el in doc.get(selector='.save'):
 		if check_storage(el['data-id']):
-			doc[el.id].checked = False
+			el.checked = False
 		else:
-			doc[el.id].checked = True
+			el.checked = True
 
 	@bind('.save', 'change')
 	def save_state(ev):
