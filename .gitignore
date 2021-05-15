@@ -1,0 +1,6 @@
+.idea*
+/__pycache__*
+/cre/*.CRE
+/are/*.ARE
+/itm/*.ITM
+/tlk/*.TLK
