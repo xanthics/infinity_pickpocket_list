@@ -41,7 +41,7 @@ def list_storage():
 
 
 def init_page():
-	pages = ['Table', 'Config', 'About', 'Changelog']
+	pages = ['Table', 'Config']  # , 'About', 'Changelog']
 	for c, page in enumerate(pages):
 		doc['buttons'] <= BUTTON(page, data_id=page, Class=f'page{" current_tab" if not c else ""}', Id=f'b_{page}')
 		if c:
