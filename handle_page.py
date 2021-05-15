@@ -114,7 +114,10 @@ def make_table(m_data, w, header=False, item_class=''):
 	tr = TR()
 	for c, d in enumerate(m_data, 1):
 		if isinstance(d, str):
-			tr <= TD(LABEL(INPUT(type='checkbox', Id=d.replace(' ', '_').replace('\'', '_'), Class=f'save {"header" if header else "flag_val"}', data_id=f"{item_class + '_' if item_class else ''}{d}") + d))
+			new_id = f"{item_class + '_' if item_class else ''}{d}"
+			for a, b in [(' ', '_'), ('\'', '_'), ('+', '_')]:
+				new_id = new_id.replace(a, b)
+			tr <= TD(LABEL(INPUT(type='checkbox', Id=new_id, Class=f'save {"header" if header else "flag_val"}', data_id=f"{item_class + '_' if item_class else ''}{d}") + d))
 		if not c % w:
 			t <= tr
 			tr = TR()
