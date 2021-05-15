@@ -160,9 +160,26 @@ def view_area(are_file, cre_dict):
 	return ret, t_actors
 
 
+# Given a decompiled script file, extract all spawned creatures
+def view_bcs(baf_file, cre_dict):
+	with open(baf_file, 'r', errors='ignore') as f:
+		t_actors = set()  # Only include 1 instance of a character from each zone
+		ret = []
+		for line in f:
+			if 'CreateCreature' in line:
+				cre = line.split('"')[1].lower()
+				if cre in cre_dict:
+					t_actors.add(cre)
+		for t_act in t_actors:
+			ret.append(cre_dict[t_act])
+
+	return ret, t_actors
+
+
 # NOTES: sell value is 1/2 of an items value.  Items with charges are value/max_count*current_count
 def main():
 	# Areas -> actors -> items, so generate in reverse
+	# Create a dictionary with all valid items that can drop
 	items = {}
 	for r, d, f in os.walk('itm'):
 		len_f = len(f)
@@ -178,7 +195,7 @@ def main():
 				# remove EET items that appear to be script/difficulty related
 				if not (item['name'].startswith('dw#') and item['price'] == 0):
 					items[file.lower()] = item
-
+	# Create a list of all valid creatures that have valid items to pickpocket
 	cre_dict = {}
 	for r, d, f in os.walk('cre'):
 		len_f = len(f)
@@ -193,7 +210,7 @@ def main():
 					if not person['name']:
 						person['name'] = file[:-4]
 					cre_dict[file.lower()[:-4]] = person
-
+	# Go through all areas and check all creatures for ones that can be pickpocketed
 	are_dict = {}
 	npc_list = set(cre_dict.keys())
 	for r, d, f in os.walk('are'):
@@ -209,6 +226,21 @@ def main():
 					npc_list -= npcs
 					area_key = file[:-4].lower()
 					are_dict[f"{area_key} - {area_lookup[area_key]}" if area_key in area_lookup else area_key] = area
+	# Check all scripts that can spawn npcs for ones that spawn pickpocket targets
+	for r, d, f in os.walk('bcs'):
+		len_f = len(f)
+		tick = len_f // 40
+		print(f"Reading {len_f} BAF files.")
+		for c, file in enumerate(f):
+			if not c % tick:
+				print(f"ARE: {c}/{len_f}")
+			if file.lower().endswith('.baf'):
+				area, npcs = view_bcs(os.path.join(r, file), cre_dict)
+				if area:
+					npc_list -= npcs
+					area_key = file[:-4].lower()
+					are_dict[f"{area_key} (Spawned) - {area_lookup[area_key]}" if area_key in area_lookup else f"{area_key} (Spawned)"] = area
+
 	if npc_list:
 		are_dict['unknown'] = []
 		for npc in npc_list:
@@ -220,8 +252,8 @@ def main():
 	item_types = {}
 	buf = ['data = [', '\t["Area", "NPC", "XP", "Gold Carried", "Pickpocket Skill", "Item Price (base)", "Item Type", "Item"],']
 	for are in sorted(are_dict):
-		for cre in are_dict[are]:
-			for itm in cre['items']:
+		for cre in sorted(are_dict[are], key=lambda i: i['name']):
+			for itm in sorted(cre['items'], key=lambda i: i['price'], reverse=True):
 				areas.add(are)
 				if itm["type"] not in item_types:
 					item_types[itm["type"]] = set()
