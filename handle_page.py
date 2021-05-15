@@ -8,7 +8,7 @@ from table_data import data
 from config_data import *
 
 
-storage_key = "infinity_pickpocket_list"
+storage_key = "ie_p_l"
 
 
 # Setter storage so that we can differentiate values on this site from others at the same domain
@@ -103,19 +103,18 @@ def gen_table():
 	for _elt in doc.get(selector='.flag_val'):
 		if _elt.checked:
 			f_vals.append(_elt['data-id'])
-
 	t_data = [[y for c, y in enumerate(data[0]) if c in h_vals]]
 	t_data.extend([[y for c, y in enumerate(x) if c in h_vals] for x in data[1:] if x[0] in f_vals and x[-1] in f_vals])
 	return t_data
 
 
 # Given an array of values, create a w width table of checkboxes
-def make_table(m_data, w, header=False):
+def make_table(m_data, w, header=False, item_class=''):
 	t = TABLE()
 	tr = TR()
 	for c, d in enumerate(m_data, 1):
 		if isinstance(d, str):
-			tr <= TD(LABEL(INPUT(type='checkbox', Id=d.replace(' ', '_').replace('\'', '_'), Class=f'save {"header" if header else "flag_val"}', data_id=d) + d))
+			tr <= TD(LABEL(INPUT(type='checkbox', Id=d.replace(' ', '_').replace('\'', '_'), Class=f'save {"header" if header else "flag_val"}', data_id=f"{item_class + '_' if item_class else ''}{d}") + d))
 		if not c % w:
 			t <= tr
 			tr = TR()
@@ -134,10 +133,10 @@ def init_options():
 	doc["Config"] <= H1("Areas") + P("'Unknown' is npcs that are spawned by scripts or may only exist in the game files and not be present in the game.") + make_table(areas, 2)
 	doc['Config'] <= H1("Items")
 	for base in types:
-		doc["Config"] <= H2(base) + make_table(types[base], 3)
+		doc["Config"] <= H2(base) + make_table(types[base], 3, item_class=base)
 
 	for el in doc.get(selector='.save'):
-		if check_storage(el.id):
+		if check_storage(el['data-id']):
 			doc[el.id].checked = False
 		else:
 			doc[el.id].checked = True
@@ -146,10 +145,9 @@ def init_options():
 	def save_state(ev):
 		if ev.target.type == 'checkbox':
 			if ev.target.checked:
-				del_storage(ev.target.id)
+				del_storage(ev.target['data-id'])
 			else:
-				set_storage(ev.target.id, 'unchecked')
+				set_storage(ev.target['data-id'], 'unchecked')
+
 
 init_page()
-#for elt in doc.get(selector='.arrows'):
-#	elt.click()

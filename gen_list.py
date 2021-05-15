@@ -226,7 +226,7 @@ def main():
 				if itm["type"] not in item_types:
 					item_types[itm["type"]] = set()
 				item_types[itm["type"]].add(itm["name"])
-				buf.append(f'\t["{are}", "{cre["name"]}", {cre["xp"]}, {cre["gold"]}, {itm["skill"]}, {itm["price"]}, "{itm["type"]}", "{itm["name"] + " (" + str(itm["quantity"]) + ")" if "quantity" in itm else itm["name"]}", "{itm["name"]}"],')
+				buf.append(f'\t["{are}", "{cre["name"]}", {cre["xp"]}, {cre["gold"]}, {itm["skill"]}, {itm["price"]}, "{itm["type"]}", "{itm["name"] + " (" + str(itm["quantity"]) + ")" if "quantity" in itm else itm["name"]}", "{itm["type"]}_{itm["name"]}"],')
 	buf.append(']\n')
 
 	with open('table_data.py', 'w') as f:
