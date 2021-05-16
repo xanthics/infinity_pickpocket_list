@@ -178,7 +178,7 @@ def check_visit():
 					  'Potion_Potion of Stone Giant Strength', 'Potion_Potion of Storm Giant Strength', 'Potion_Red Potion', 'Potion_Violet Potion', "Quarterstaff_Neera's Staff +1", 'Quarterstaff_Quarterstaff', 'Quarterstaff_Quarterstaff +1',
 					  'Ring_Bloodstone Ring', 'Ring_Dal Family Ring', 'Ring_Discipliner', 'Ring_Fire Opal Ring', 'Ring_Flamedance Ring', 'Ring_Gold Ring', 'Ring_Jade Ring', 'Ring_Onyx Ring', 'Ring_Ring', 'Ring_Ruby Ring', 'Ring_Silver Ring',
 					  'Ring_swordi.itm', 'Shield_Buckler +1', 'Shield_Large Shield', 'Shield_Medium Shield', 'Shield_Medium Shield +1', 'Sling_Sling ', 'Sling_Sling +1', 'Small sword_Short Sword', 'Small sword_Short Sword +1',
-					  'Small sword_Wakizashi', 'Spear_Spear', 'Tattoos_Bandit Scalp']:
+					  'Small sword_Wakizashi', 'Spear_Spear', 'Tattoos_Bandit Scalp', 'Crossbow_Heavy Crossbow']:
 			set_storage(k_val, 'unchecked')
 
 
