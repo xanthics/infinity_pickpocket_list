@@ -138,14 +138,12 @@ def init_options():
 	for base in types:
 		doc["Config"] <= H2(base) + make_table(types[base], 3, item_class=base)
 
-	vals = []
 	for el in doc.get(selector='.save'):
 		if check_storage(el['data-id']):
-			vals.extend([el['data-id']])
 			el.checked = False
 		else:
 			el.checked = True
-	print(vals)
+
 	@bind('.save', 'change')
 	def save_state(ev):
 		if ev.target.type == 'checkbox':
@@ -160,20 +158,27 @@ def check_visit():
 	if not check_storage('visited'):
 		set_storage('visited', 'True')
 		# By default hide some common/low value items and some of the columns
-		for k_val in ['XP', 'Gold Carried', 'Item Type', 'unknown', 'Amulet_Gold Necklace', 'Amulet_Pearl Necklace', 'Amulet_Silver Necklace', 'Amulet_Bloodstone Amulet', 'Amulet_Greenstone Amulet',
-					  'Amulet_Amulet of the Keeper of Secrets Under the Mountain', "Amulet_Galvena's Medallion", 'Amulet_Keepsake Locket', 'Amulet_Rainbow Obsidian Necklace', 'Amulet_Thrall Collar',
-					  'Armor_Chain Mail Armor', 'Armor_Leather Armor', 'Armor_Studded Leather Armor', 'Arrows_Arrow', 'Axe_Battle Axe', 'Axe_Throwing Axe', 'Bolts_Bolt', 'Bolts_Drow Bolt +1',
-					  'Bolts_Drow Bolt of Sleep', 'Bolts_Drow Bolt of Stunning', 'Bolts_Flasher Master Bruiser Mate', 'Books & misc_rndgem02.itm', 'Books & misc_rndmag06.itm', 'Books & misc_rndscr04.itm',
-					  'Books & misc_rndtre03.itm', 'Books & misc_rndtre06.itm', 'Books & misc_rndtre09.itm', 'Books & misc_sodtre09.itm', 'Books & misc_rndtri02.itm', 'Books & misc_rndtre07.itm',
-					  'Books & misc_rndtre04.itm', 'Books & misc_rndtre01.itm', 'Books & misc_rndptn01.itm', 'Books & misc_rndgem03.itm', 'Books & misc_rndaro01.itm', 'Books & misc_Wooden Stake',
-					  'Books & misc_rndgem01.itm', 'Books & misc_rndmag01.itm', 'Books & misc_rndscr01.itm', 'Books & misc_rndtre02.itm', 'Books & misc_rndtre05.itm', 'Books & misc_rndtre08.itm',
-					  'Books & misc_rndwand.itm', 'Bow_Composite Longbow', 'Bow_Longbow', 'Bow_Shortbow', 'Bracers & gauntlets_Jansen Techno-Gloves', 'Bracers & gauntlets_Bracers', 'Bullets_Bullet',
-					  'Cloaks & Robes_Drow Piwafwi Cloak', 'Cloaks & Robes_Shadow Thief Cloak', 'Crossbow_Drow Crossbow of Speed +3', 'Crossbow_Flasher Launcher', 'Dagger_Dagger', 'Dagger_Throwing Dagger',
-					  'Dagger_Shadow Thief Dagger', 'Darts_Dart', 'Flail_Drow Flail +3', 'Flail_Flail', 'Halberd_Halberd', 'Hammer_War Hammer', 'Headgear_Helmet', 'Large sword_Bastard Sword',
-					  'Large sword_Long Sword', 'Large sword_Ninja-To', 'Large sword_Scimitar', 'Large sword_Two-handed Sword', 'Mace & Club_Club', 'Mace & Club_Mace', 'Morning star_Morning Star',
-					  'Quarterstaff_Quarterstaff', 'Shield_Medium Shield', 'Shield_Large Shield', 'Sling_Sling', 'Small sword_Short Sword', 'Small sword_Wakizashi', 'Spear_Spear', 'Tattoos_Bandit Scalp',
-					  'Ring_Bloodstone Ring', 'Ring_Dal Family Ring', 'Ring_Discipliner', 'Ring_Flamedance Ring', 'Ring_Fire Opal Ring', 'Ring_Gold Ring', 'Ring_Jade Ring', 'Ring_Onyx Ring', 'Ring_Ring',
-					  'Ring_Ruby Ring', 'Ring_Silver Ring', 'Ring_swordi.itm']:
+		for k_val in ['XP', 'Gold Carried', 'Item Type', 'unknown', 'Amulet_Amulet of the Keeper of Secrets Under the Mountain', 'Amulet_Bloodstone Amulet', "Amulet_Galvena's Medallion", 'Amulet_Gold Necklace', 'Amulet_Greenstone Amulet',
+					  'Amulet_Keepsake Locket', 'Amulet_Pearl Necklace', 'Amulet_Rainbow Obsidian Necklace', 'Amulet_Silver Necklace', 'Amulet_Thrall Collar', "Armor_Adventurer's Robe", 'Armor_Chain Mail Armor', 'Armor_Leather Armor',
+					  'Armor_Leather Armor +1', 'Armor_Studded Leather Armor', 'Arrows_Acid Arrow +1', 'Arrows_Arrow', 'Arrows_Arrow +1', 'Arrows_Arrow of Biting', 'Arrows_Arrow of Fire', 'Arrows_Arrow of Ice', 'Arrows_Arrow of Piercing +1',
+					  'Arrows_Flaming Arrow', 'Axe_Battle Axe', 'Axe_Battle Axe +1', 'Axe_Throwing Axe', 'Bolts_Bolt', 'Bolts_Bolt +1', 'Bolts_Bolt of Biting ', 'Bolts_Bolt of Lightning', 'Bolts_Drow Bolt +1', 'Bolts_Drow Bolt of Sleep',
+					  'Bolts_Drow Bolt of Stunning', 'Bolts_Flasher Master Bruiser Mate', 'Bolts_Kuo-toan Bolt', 'Bolts_Paralytic Bolt', 'Books & misc_Wooden Stake', 'Books & misc_rndaro01.itm', 'Books & misc_rndgem01.itm',
+					  'Books & misc_rndgem02.itm', 'Books & misc_rndgem03.itm', 'Books & misc_rndmag01.itm', 'Books & misc_rndmag06.itm', 'Books & misc_rndptn01.itm', 'Books & misc_rndscr01.itm', 'Books & misc_rndscr04.itm',
+					  'Books & misc_rndtre01.itm', 'Books & misc_rndtre02.itm', 'Books & misc_rndtre03.itm', 'Books & misc_rndtre04.itm', 'Books & misc_rndtre05.itm', 'Books & misc_rndtre06.itm', 'Books & misc_rndtre07.itm',
+					  'Books & misc_rndtre08.itm', 'Books & misc_rndtre09.itm', 'Books & misc_rndtri02.itm', 'Books & misc_rndwand.itm', 'Books & misc_sodtre09.itm', 'Bow_Composite Longbow', 'Bow_Composite Longbow +1', 'Bow_Longbow',
+					  'Bow_Longbow +1', 'Bow_Shortbow', 'Bow_Shortbow +1', 'Bracers & gauntlets_Bracers', 'Bracers & gauntlets_Bracers of Defense AC 7', 'Bracers & gauntlets_Bracers of Defense AC 8', 'Bracers & gauntlets_Jansen Techno-Gloves',
+					  'Bullets_Bullet', 'Bullets_Bullet +1', 'Bullets_Bullet of Electricity +1', 'Bullets_Bullet of Fire +1', 'Bullets_Bullet of Ice +1', 'Bullets_Sunstone Bullet +1', 'Cloaks & Robes_Drow Piwafwi Cloak',
+					  'Cloaks & Robes_Shadow Thief Cloak', 'Crossbow_Drow Crossbow of Speed +3', 'Crossbow_Flasher Launcher', 'Crossbow_Heavy Crossbow +1', 'Crossbow_Light Crossbow', 'Crossbow_Light Crossbow +1', 'Dagger_Dagger',
+					  'Dagger_Dagger +1', 'Dagger_Poisoned Throwing Dagger', 'Dagger_Shadow Thief Dagger', 'Dagger_Throwing Dagger', 'Dagger_Throwing Dagger +1', "Darts_Asp's Nest +1", 'Darts_Dart', 'Darts_Dart +1',
+					  'Darts_Dart of Acid +1', 'Darts_Dart of Fire +1', 'Darts_Dart of Stunning', 'Darts_Dart of Wounding', 'Flail_Drow Flail +3', 'Flail_Flail', 'Flail_Flail +1', 'Halberd_Halberd', 'Halberd_Halberd +1',
+					  'Hammer_War Hammer', 'Hammer_War Hammer +1', 'Headgear_Helmet', 'Large sword_Bastard Sword', 'Large sword_Bastard Sword +1', 'Large sword_Drow Long Sword +3', 'Large sword_Long Sword', 'Large sword_Long Sword +1',
+					  'Large sword_Ninja-To', 'Large sword_Scimitar', 'Large sword_Scimitar +1', 'Large sword_Two-handed Sword', 'Large sword_Two-handed Sword +1', 'Mace & Club_Club', 'Mace & Club_Club +1', 'Mace & Club_Mace',
+					  'Mace & Club_Mace +1', 'Morning star_Morning Star', 'Morning star_Morning Star +1', 'Potion_Antidote', 'Potion_Bottle of Wine', 'Potion_Elixir of Health', 'Potion_Empty Breath Potion Flask',
+					  'Potion_Potion of Cloud Giant Strength', 'Potion_Potion of Fire Giant Strength', 'Potion_Potion of Healing', 'Potion_Potion of Hill Giant Strength', 'Potion_Potion of Infravision', 'Potion_Potion of Regeneration',
+					  'Potion_Potion of Stone Giant Strength', 'Potion_Potion of Storm Giant Strength', 'Potion_Red Potion', 'Potion_Violet Potion', "Quarterstaff_Neera's Staff +1", 'Quarterstaff_Quarterstaff', 'Quarterstaff_Quarterstaff +1',
+					  'Ring_Bloodstone Ring', 'Ring_Dal Family Ring', 'Ring_Discipliner', 'Ring_Fire Opal Ring', 'Ring_Flamedance Ring', 'Ring_Gold Ring', 'Ring_Jade Ring', 'Ring_Onyx Ring', 'Ring_Ring', 'Ring_Ruby Ring', 'Ring_Silver Ring',
+					  'Ring_swordi.itm', 'Shield_Buckler +1', 'Shield_Large Shield', 'Shield_Medium Shield', 'Shield_Medium Shield +1', 'Sling_Sling ', 'Sling_Sling +1', 'Small sword_Short Sword', 'Small sword_Short Sword +1',
+					  'Small sword_Wakizashi', 'Spear_Spear', 'Tattoos_Bandit Scalp']:
 			set_storage(k_val, 'unchecked')
 
 
