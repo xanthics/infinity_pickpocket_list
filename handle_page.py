@@ -138,12 +138,14 @@ def init_options():
 	for base in types:
 		doc["Config"] <= H2(base) + make_table(types[base], 3, item_class=base)
 
+	vals = []
 	for el in doc.get(selector='.save'):
 		if check_storage(el['data-id']):
+			vals.extend([el['data-id']])
 			el.checked = False
 		else:
 			el.checked = True
-
+	print(vals)
 	@bind('.save', 'change')
 	def save_state(ev):
 		if ev.target.type == 'checkbox':
