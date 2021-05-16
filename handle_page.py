@@ -41,13 +41,13 @@ def list_storage():
 
 
 def init_page():
+	check_visit()
 	pages = ['Table', 'Config']  # , 'About', 'Changelog']
 	for c, page in enumerate(pages):
 		doc['buttons'] <= BUTTON(page, data_id=page, Class=f'page{" current_tab" if not c else ""}', Id=f'b_{page}')
 		if c:
 			doc['pages'] <= SECTION(Id=page)
 			doc[page].style.display = 'none'
-
 	init_options()
 	init_table()
 #	init_about()
@@ -133,7 +133,7 @@ def init_table():
 
 def init_options():
 	doc["Config"] <= H1("Column visibility") + make_table(headers, 3, True)
-	doc["Config"] <= H1("Areas") + P("'Unknown' is npcs that are spawned by scripts or may only exist in the game files and not be present in the game.") + make_table(areas, 2)
+	doc["Config"] <= H1("Areas") + P("'Unknown' is npcs that may only exist in the game files and not be present in the game.  They are not attached to an area and don't have a BCS spawn script.") + make_table(areas, 2)
 	doc['Config'] <= H1("Items")
 	for base in types:
 		doc["Config"] <= H2(base) + make_table(types[base], 3, item_class=base)
@@ -151,6 +151,28 @@ def init_options():
 				del_storage(ev.target['data-id'])
 			else:
 				set_storage(ev.target['data-id'], 'unchecked')
+
+
+# Check if first visit, if so hide some specific columns and items by default
+def check_visit():
+	if not check_storage('visited'):
+		set_storage('visited', 'True')
+		# By default hide some common/low value items and some of the columns
+		for k_val in ['XP', 'Gold Carried', 'Item Type', 'unknown', 'Amulet_Gold Necklace', 'Amulet_Pearl Necklace', 'Amulet_Silver Necklace', 'Amulet_Bloodstone Amulet', 'Amulet_Greenstone Amulet',
+					  'Amulet_Amulet of the Keeper of Secrets Under the Mountain', "Amulet_Galvena's Medallion", 'Amulet_Keepsake Locket', 'Amulet_Rainbow Obsidian Necklace', 'Amulet_Thrall Collar',
+					  'Armor_Chain Mail Armor', 'Armor_Leather Armor', 'Armor_Studded Leather Armor', 'Arrows_Arrow', 'Axe_Battle Axe', 'Axe_Throwing Axe', 'Bolts_Bolt', 'Bolts_Drow Bolt +1',
+					  'Bolts_Drow Bolt of Sleep', 'Bolts_Drow Bolt of Stunning', 'Bolts_Flasher Master Bruiser Mate', 'Books & misc_rndgem02.itm', 'Books & misc_rndmag06.itm', 'Books & misc_rndscr04.itm',
+					  'Books & misc_rndtre03.itm', 'Books & misc_rndtre06.itm', 'Books & misc_rndtre09.itm', 'Books & misc_sodtre09.itm', 'Books & misc_rndtri02.itm', 'Books & misc_rndtre07.itm',
+					  'Books & misc_rndtre04.itm', 'Books & misc_rndtre01.itm', 'Books & misc_rndptn01.itm', 'Books & misc_rndgem03.itm', 'Books & misc_rndaro01.itm', 'Books & misc_Wooden Stake',
+					  'Books & misc_rndgem01.itm', 'Books & misc_rndmag01.itm', 'Books & misc_rndscr01.itm', 'Books & misc_rndtre02.itm', 'Books & misc_rndtre05.itm', 'Books & misc_rndtre08.itm',
+					  'Books & misc_rndwand.itm', 'Bow_Composite Longbow', 'Bow_Longbow', 'Bow_Shortbow', 'Bracers & gauntlets_Jansen Techno-Gloves', 'Bracers & gauntlets_Bracers', 'Bullets_Bullet',
+					  'Cloaks & Robes_Drow Piwafwi Cloak', 'Cloaks & Robes_Shadow Thief Cloak', 'Crossbow_Drow Crossbow of Speed +3', 'Crossbow_Flasher Launcher', 'Dagger_Dagger', 'Dagger_Throwing Dagger',
+					  'Dagger_Shadow Thief Dagger', 'Darts_Dart', 'Flail_Drow Flail +3', 'Flail_Flail', 'Halberd_Halberd', 'Hammer_War Hammer', 'Headgear_Helmet', 'Large sword_Bastard Sword',
+					  'Large sword_Long Sword', 'Large sword_Ninja-To', 'Large sword_Scimitar', 'Large sword_Two-handed Sword', 'Mace & Club_Club', 'Mace & Club_Mace', 'Morning star_Morning Star',
+					  'Quarterstaff_Quarterstaff', 'Shield_Medium Shield', 'Shield_Large Shield', 'Sling_Sling', 'Small sword_Short Sword', 'Small sword_Wakizashi', 'Spear_Spear', 'Tattoos_Bandit Scalp',
+					  'Ring_Bloodstone Ring', 'Ring_Dal Family Ring', 'Ring_Discipliner', 'Ring_Flamedance Ring', 'Ring_Fire Opal Ring', 'Ring_Gold Ring', 'Ring_Jade Ring', 'Ring_Onyx Ring', 'Ring_Ring',
+					  'Ring_Ruby Ring', 'Ring_Silver Ring', 'Ring_swordi.itm']:
+			set_storage(k_val, 'unchecked')
 
 
 init_page()
