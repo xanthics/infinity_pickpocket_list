@@ -113,7 +113,7 @@ def view_item(itm_file):
 					 'Cloaks & Robes', 'Gold pieces', 'Gem', 'Wand', 'Containers/eye/broken armor', 'Books/Broken shields/bracelets', 'Familiars/Broken swords/earrings', 'Tattoos', 'Lenses', 'Bucklers/teeth',
 					 'Candles', 'Unknown', 'Clubs (IWD)', 'Unknown', 'Unknown', 'Large Shields (IWD)', 'Unknown', 'Medium Shields (IWD)', 'Notes', 'Unknown', 'Unknown', 'Small Shields (IWD)', 'Unknown',
 					 'Telescopes (IWD)', 'Drinks (IWD)', 'Great Swords (IWD)', 'Container', 'Fur/pelt', 'Leather Armor', 'Studded Leather Armor', 'Chain Mail', 'Splint Mail', 'Half Plate', 'Full Plate',
-					 'Hide Armor', 'Robe', 'Unknown', 'Bastard Sword', 'Scarf', 'Food (IWD2)', 'Hat', 'Gauntlet']
+					 'Hide Armor', 'Robe', 'Unknown', 'Bastard Sword', 'Scarf', 'Food (IWD2)', 'Hat', 'Gauntlet', 'Eyeballs', 'Earrings', 'Teeth', 'Bracelets']
 
 		# Check version since eah one stores files differently
 		if version == 'v1  ':

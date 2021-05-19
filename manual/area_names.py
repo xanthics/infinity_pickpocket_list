@@ -4,7 +4,8 @@
 
 area_lookup = {}
 
-with open("manual/area_names.csv", 'r') as f:
+#with open("manual/bg2_area.csv", 'r') as f:
+with open("manual/iwd_area.csv", 'r') as f:
 	for line in f:
 		l = line.strip().split('|')
 		if len(l) == 2:
