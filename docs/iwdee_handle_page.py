@@ -134,10 +134,10 @@ def init_table():
 
 def init_options():
 	doc["Config"] <= H1("Column visibility") + make_table(headers, 3, True)
-	doc["Config"] <= H1("Areas") + P("'Unknown' is npcs that may only exist in the game files and not be present in the game.  They are not attached to an area and don't have a BCS spawn script.") + make_table(areas, 2)
 	doc['Config'] <= H1("Items")
 	for base in types:
 		doc["Config"] <= H2(base) + make_table(types[base], 3, item_class=base)
+	doc["Config"] <= H1("Areas") + P("'Unknown' is npcs that may only exist in the game files and not be present in the game.  They are not attached to an area and don't have a BCS spawn script.") + make_table(areas, 2)
 
 	for el in doc.get(selector='.save'):
 		if check_storage(el['data-id']):
