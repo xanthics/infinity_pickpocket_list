@@ -1,35 +1,35 @@
-handle = '''
+
 from browser import document as doc
 from browser import bind, window
 from browser.html import TABLE, TR, TH, TD, INPUT, DIV, BUTTON, SPAN, UL, LI, SECTION, P, LABEL, H1, H2
 from browser.local_storage import storage
 from browser.template import Template
 
-from {0}_table_data import data
-from {0}_config_data import *
+from bgee_table_data import data
+from bgee_config_data import *
 
 
-storage_key = "ie_p_l_{0}"
+storage_key = "ie_p_l_bgee"
 
 
 # Setter storage so that we can differentiate values on this site from others at the same domain
 def set_storage(key, val):
-	storage["{{}}-{{}}".format(storage_key, key)] = val
+	storage["{}-{}".format(storage_key, key)] = val
 
 
 # Getting for storage so that we can differentiate values on this site from others at the same domain
 def get_storage(key):
-	return storage["{{}}-{{}}".format(storage_key, key)]
+	return storage["{}-{}".format(storage_key, key)]
 
 
 # Check if a value exists in storage
 def check_storage(key):
-	return "{{}}-{{}}".format(storage_key, key) in storage
+	return "{}-{}".format(storage_key, key) in storage
 
 
 # deleter for storage so that we can differentiate values on this site from others at the same domain
 def del_storage(key):
-	nkey = f"{{storage_key}}-{{key}}"
+	nkey = f"{storage_key}-{key}"
 	if nkey in storage.keys():
 		del storage[nkey]
 
@@ -45,7 +45,7 @@ def init_page():
 	check_visit()
 	pages = ['Table', 'Config']  # , 'About', 'Changelog']
 	for c, page in enumerate(pages):
-		doc['buttons'] <= BUTTON(page, data_id=page, Class=f'page{{" current_tab" if not c else ""}}', Id=f'b_{{page}}')
+		doc['buttons'] <= BUTTON(page, data_id=page, Class=f'page{" current_tab" if not c else ""}', Id=f'b_{page}')
 		if c:
 			doc['pages'] <= SECTION(Id=page)
 			doc[page].style.display = 'none'
@@ -63,11 +63,11 @@ def init_page():
 		if val == 'Table':
 			doc.getElementById('nav_target').click()
 		doc[val].style.display = 'block'
-		doc[f'b_{{val}}'].attrs['class'] = 'current_tab page'
+		doc[f'b_{val}'].attrs['class'] = 'current_tab page'
 		idx = pages.index(val)
 		for i in pages[:idx] + pages[idx+1:]:
 			doc[i].style.display = 'none'
-			doc[f'b_{{i}}'].attrs['class'] = 'page'
+			doc[f'b_{i}'].attrs['class'] = 'page'
 
 
 def sort(evt, elt):
@@ -115,10 +115,10 @@ def make_table(m_data, w, header=False, item_class=''):
 	tr = TR()
 	for c, d in enumerate(m_data, 1):
 		if isinstance(d, str):
-			new_id = f"{{item_class + '_' if item_class else ''}}{{d}}"
-			for a, b in [(' ', '_'), ('\\'', '_'), ('+', '_')]:
+			new_id = f"{item_class + '_' if item_class else ''}{d}"
+			for a, b in [(' ', '_'), ('\'', '_'), ('+', '_')]:
 				new_id = new_id.replace(a, b)
-			tr <= TD(LABEL(INPUT(type='checkbox', Id=new_id, Class=f'save {{"header" if header else "flag_val"}}', data_id=f"{{item_class + '_' if item_class else ''}}{{d}}") + d))
+			tr <= TD(LABEL(INPUT(type='checkbox', Id=new_id, Class=f'save {"header" if header else "flag_val"}', data_id=f"{item_class + '_' if item_class else ''}{d}") + d))
 		if not c % w:
 			t <= tr
 			tr = TR()
@@ -184,4 +184,3 @@ def check_visit():
 
 
 init_page()
-'''

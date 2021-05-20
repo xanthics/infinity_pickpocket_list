@@ -1,3 +1,4 @@
+gamestr = "Baldur's Gate EET 2.6.5.0 + SCS"
 headers = ["Area", "NPC", "XP", "Gold Carried", "Pickpocket Skill", "Item Price (base)", "Item Type", "Item"]
 
 areas = [

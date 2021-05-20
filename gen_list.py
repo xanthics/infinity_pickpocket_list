@@ -5,7 +5,10 @@
 
 import struct
 import os
-from manual.area_names import area_lookup
+from manual.area_names import gen_area_names
+from template_index import index
+from handle_page import handle
+from root_index import root_index
 
 
 # wrapper function to convert byte string to regular string
@@ -15,11 +18,11 @@ def mystr(a_str):
 
 # Given an index, return a strings
 # https://gibberlings3.github.io/iesdp/file_formats/ie_formats/tlk_v1.htm
-def getname(idx):
+def getname(idx, game):
 	if idx == -1:
 		return ""
 	assert idx >= 0, f"Invalid Name/String index: {idx}"
-	with open('tlk\\dialog.tlk', 'rb') as file:
+	with open(f'{game}_files\\dialog.tlk', 'rb') as file:
 		text = file.read()
 		max_str = struct.unpack('i', text[0xa:0xa+4])[0]
 		if idx >= max_str:
@@ -33,7 +36,7 @@ def getname(idx):
 
 # Given a character name, return useful information
 # https://gibberlings3.github.io/iesdp/file_formats/ie_formats/cre_v1.htm
-def view_char(cre_file, item_list):
+def view_char(cre_file, item_list, game):
 	with open(cre_file, 'rb') as file:
 		try:
 			text = file.read()
@@ -65,7 +68,7 @@ def view_char(cre_file, item_list):
 		if item_count and f_race != 146 and not bool(f_status & 0b111111000000):  # We can't pickpocket dragons or dead things
 			if struct.unpack('B', text[enemy:enemy+1])[0] == 0xff:  # Enemies are hostile and cannot be pickpocketed, to my knowledge
 				return ret
-			ret['name'] = getname(struct.unpack('i', text[name:name + 4])[0])
+			ret['name'] = getname(struct.unpack('i', text[name:name + 4])[0], game)
 			ret['xp'] = struct.unpack('i', text[xp:xp + 4])[0]
 			ret['gold'] = struct.unpack('i', text[gold:gold + 4])[0]
 			item_offset = struct.unpack('i', text[item_offset_off:item_offset_off+4])[0]
@@ -97,7 +100,7 @@ def view_char(cre_file, item_list):
 # Given an item name, return useful information
 # https://gibberlings3.github.io/iesdp/file_formats/ie_formats/itm_v1.htm
 # TODO: Wand charge max (from first ability)
-def view_item(itm_file):
+def view_item(itm_file, game):
 	with open(itm_file, 'rb') as file:
 		try:
 			text = file.read()
@@ -124,7 +127,7 @@ def view_item(itm_file):
 			max_count = 0
 		else:
 			assert False, f"Invalid File Version: '{version}'"
-		ret['name'] = getname(struct.unpack('i', text[name:name + 4])[0])
+		ret['name'] = getname(struct.unpack('i', text[name:name + 4])[0], game)
 		ret['price'] = struct.unpack('i', text[price:price + 4])[0]
 		ret['drop'] = bool(struct.unpack('i', text[flags:flags + 4])[0] & 4)
 		ret['type'] = item_type[struct.unpack('h', text[itm_type:itm_type + 2])[0]]
@@ -177,69 +180,79 @@ def view_bcs(baf_file, cre_dict):
 
 
 # NOTES: sell value is 1/2 of an items value.  Items with charges are value/max_count*current_count
-def main():
+def walk_game(game, game_str):
+	print(f"Starting: {game} = {game_str}")
+	area_lookup = gen_area_names(game)
 	# Areas -> actors -> items, so generate in reverse
 	# Create a dictionary with all valid items that can drop
 	items = {}
-	for r, d, f in os.walk('itm'):
-		len_f = len(f)
-		tick = len_f // 40
-		print(f"Reading {len_f} ITM files.")
-		for c, file in enumerate(f):
-			if not c % tick:
-				print(f"ITM: {c}/{len_f}")
-			if file.lower().endswith('.itm'):
-				item = view_item(os.path.join(r, file))
-				if not item['name']:
-					item['name'] = file.lower()
-				# remove EET items that appear to be script/difficulty related
-				if not (item['name'].startswith('dw#') and item['price'] == 0):
-					items[file.lower()] = item
 	# Create a list of all valid creatures that have valid items to pickpocket
 	cre_dict = {}
-	for r, d, f in os.walk('cre'):
-		len_f = len(f)
-		tick = len_f // 40
-		print(f"Reading {len_f} CRE files.")
-		for c, file in enumerate(f):
-			if not c % tick:
-				print(f"CRE: {c}/{len_f}")
-			if file.lower().endswith('.cre'):
-				person = view_char(os.path.join(r, file), items)
-				if person['items']:
-					if not person['name']:
-						person['name'] = file[:-4]
-					cre_dict[file.lower()[:-4]] = person
 	# Go through all areas and check all creatures for ones that can be pickpocketed
 	are_dict = {}
-	npc_list = set(cre_dict.keys())
-	for r, d, f in os.walk('are'):
-		len_f = len(f)
+	for r, d, f in os.walk(f"{game}_files"):
+		itm_files = []
+		cre_files = []
+		are_files = []
+		baf_files = []
+		for f_temp in f:
+			f_temp = f_temp.lower()
+			if f_temp.endswith('.itm'):
+				itm_files.append(f_temp)
+			elif f_temp.endswith('.cre'):
+				cre_files.append(f_temp)
+			elif f_temp.endswith('.are'):
+				are_files.append(f_temp)
+			elif f_temp.endswith('.baf'):
+				baf_files.append(f_temp)
+			else:
+				print(f"Unexpected file: '{f_temp}'")
+		len_f = len(itm_files)
+		tick = len_f // 40
+		print(f"Reading {len_f} ITM files.")
+		for c, file in enumerate(itm_files):
+			if not c % tick:
+				print(f"{game} ITM: {c}/{len_f}")
+			item = view_item(os.path.join(r, file), game)
+			if not item['name']:
+				item['name'] = file.lower()
+			# remove EET items that appear to be script/difficulty related
+			if not (item['name'].startswith('dw#') and item['price'] == 0):
+				items[file.lower()] = item
+		len_f = len(cre_files)
 		tick = len_f // 40
 		print(f"Reading {len_f} CRE files.")
-		for c, file in enumerate(f):
+		for c, file in enumerate(cre_files):
 			if not c % tick:
-				print(f"ARE: {c}/{len_f}")
-			if file.lower().endswith('.are'):
-				area, npcs = view_area(os.path.join(r, file), cre_dict)
-				if area:
-					npc_list -= npcs
-					area_key = file[:-4].lower()
-					are_dict[f"{area_key} - {area_lookup[area_key]}" if area_key in area_lookup else area_key] = area
-	# Check all scripts that can spawn npcs for ones that spawn pickpocket targets
-	for r, d, f in os.walk('bcs'):
-		len_f = len(f)
+				print(f"{game} CRE: {c}/{len_f}")
+			person = view_char(os.path.join(r, file), items, game)
+			if person['items']:
+				if not person['name']:
+					person['name'] = file[:-4]
+				cre_dict[file.lower()[:-4]] = person
+		npc_list = set(cre_dict.keys())
+		len_f = len(are_files)
+		tick = len_f // 40
+		print(f"Reading {len_f} ARE files.")
+		for c, file in enumerate(are_files):
+			if not c % tick:
+				print(f"{game} ARE: {c}/{len_f}")
+			area, npcs = view_area(os.path.join(r, file), cre_dict)
+			if area:
+				npc_list -= npcs
+				area_key = file[:-4].lower()
+				are_dict[f"{area_key} - {area_lookup[area_key]}" if area_key in area_lookup else area_key] = area
+		len_f = len(baf_files)
 		tick = len_f // 40
 		print(f"Reading {len_f} BAF files.")
-		for c, file in enumerate(f):
+		for c, file in enumerate(baf_files):
 			if not c % tick:
-				print(f"ARE: {c}/{len_f}")
-			if file.lower().endswith('.baf'):
-				area, npcs = view_bcs(os.path.join(r, file), cre_dict)
-				if area:
-					npc_list -= npcs
-					area_key = file[:-4].lower()
-					are_dict[f"{area_key} (Spawned) - {area_lookup[area_key]}" if area_key in area_lookup else f"{area_key} (Spawned)"] = area
+				print(f"{game} ARE: {c}/{len_f}")
+			area, npcs = view_bcs(os.path.join(r, file), cre_dict)
+			if area:
+				npc_list -= npcs
+				area_key = file[:-4].lower()
+				are_dict[f"{area_key} (Spawned) - {area_lookup[area_key]}" if area_key in area_lookup else f"{area_key} (Spawned)"] = area
 
 	if npc_list:
 		are_dict['unknown'] = []
@@ -261,10 +274,10 @@ def main():
 				buf.append(f'\t["{are}", "{cre["name"]}", {cre["xp"]}, {cre["gold"]}, {itm["skill"]}, {itm["price"]}, "{itm["type"]}", "{itm["name"] + " (" + str(itm["quantity"]) + ")" if "quantity" in itm else itm["name"]}", "{itm["type"]}_{itm["name"]}"],')
 	buf.append(']\n')
 
-	with open('table_data.py', 'w') as f:
+	with open(f'docs/{game}_table_data.py', 'w') as f:
 		f.write('\n'.join(buf))
 
-	buf = ['headers = ["Area", "NPC", "XP", "Gold Carried", "Pickpocket Skill", "Item Price (base)", "Item Type", "Item"]\n', 'areas = [']
+	buf = [f'gamestr = "{game_str}"', 'headers = ["Area", "NPC", "XP", "Gold Carried", "Pickpocket Skill", "Item Price (base)", "Item Type", "Item"]\n', 'areas = [']
 	for a in sorted(areas):
 		buf.append(f'\t"{a}",')
 	buf.append(']\n')
@@ -276,8 +289,27 @@ def main():
 		buf.append('\t],')
 	buf.append('}\n')
 
-	with open('config_data.py', 'w') as f:
+	with open(f'docs/{game}_config_data.py', 'w') as f:
 		f.write('\n'.join(buf))
+	with open(f'docs/{game}.html', 'w') as f:
+		f.write(index.format(game, game_str))
+	with open(f'docs/{game}_handle_page.py', 'w') as f:
+		f.write(handle.format(game))
+
+
+def main():
+	vals = [
+		('iwdee', 'Icewind Dale EE 2.6.6.0'),
+		('custom_iwdee', 'Icewind Dale EE 2.6.6.0 + BetterHOF + CDTWEAKS'),
+		('bgee', 'Baldur\'s Gate EE 2.6.6.0'),
+		('bg2ee', 'Baldur\'s Gate 2 EE 2.6.6.0'),
+		('custom_bgeet', 'Baldur\'s Gate EET 2.6.5.0 + SCS'),
+	]
+	for game, game_str in vals:
+		walk_game(game, game_str)
+
+	with open('docs\\index.html', 'w') as f:
+		f.write(root_index.format('</p><p>'.join([f'<a href="{x[0]}.html" target="_blank">{x[1]}</a>' for x in vals])))
 
 
 if __name__ == '__main__':

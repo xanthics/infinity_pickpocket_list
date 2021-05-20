@@ -1,0 +1,592 @@
+AR0002|Temple of Helm (Baldur's Gate)
+AR0004|Behren's home, ground floor
+AR0005|Behren's home, second floor (Pixie the Cat)
+AR0006|Rinnie's home, ground floor
+AR0007|Rinnie's home, second floor
+AR0008|Generic home, ground floor
+AR0009|Generic home, second floor
+AR0010|Jardak's home, ground floor (Drelik the butler)
+AR0011|Jardak's home, second floor
+AR0012|Generic home, ground floor
+AR0013|Generic home, second floor
+AR0014|Generic home, ground floor
+AR0015|Generic home, second floor
+AR0016|Generic home, ground floor
+AR0017|Generic home, second floor
+AR0018|Generic home, ground floor
+AR0019|Generic home, second floor
+AR0020|Generic home, ground floor
+AR0021|Generic home, second floor
+AR0100|NW Baldur's Gate (Helm & Cloak, Silvershield Estate)
+AR0101|Silvershield Estate, ground floor
+AR0102|Silvershield Estate, second floor
+AR0103|Splurging Sturgeon, ground floor (Lusselyn)
+AR0104|Splurging Sturgeon, second floor (Mr. Shade)
+AR0105|Blade and Stars, ground floor (G'axir the Seer, Elkart)
+AR0106|Blade and Stars, second floor (Maple Willow Aspen)
+AR0107|Blade and stars, third floor (Reginald Longtooth Worthington III)
+AR0108|Duchal Palace, ground floor
+AR0109|Duchal Palace, second floor
+AR0110|Duchal Palace, third floor
+AR0111|Duchal Palace, basement
+AR0112|Undercellars (Slythe, Krystin)
+AR0114|Blushing Mermaid, ground floor (Larze)
+AR0115|Blushing Mermaid, second floor
+AR0116|Helm & Cloak, ground floor (Gorpel Hind)
+AR0117|Helm & Cloak, second floor front (Emissary Sarah)
+AR0118|Helm & Cloak, second floor rear
+AR0119|Three Old Kegs tavern, ground floor
+AR0120|Three Old Kegs tavern, second floor (Skull of Keraph)
+AR0121|Three Old Kegs tavern, third floor (Areana)
+AR0123|Undercity (Temple of Bhaal, old city ruins)
+AR0125|Temple of Bhaal (game finale)
+AR0126|Ragefast's home
+AR0127|Merchant League, ground floor (Irlentree)
+AR0128|Merchant League, second floor (Aldeth, Brandilar, Zorl)
+AR0129|Merchant League, third floor
+AR0130|Hall of Wonders (Alora)
+AR0131|Temple of Gond (Forthel August)
+AR0132|Lady's House (Agnasia, Chanthalas Ulbright)
+AR0133|Low Lantern, ground floor
+AR0134|Low Lantern, first underwater level (Desreta, Vay-ya)
+AR0135|Low Lantern, second underwater level (Yago)
+AR0136|Low Lantern, third underwater level
+AR0137|Ramazith's Tower, ground floor
+AR0138|Ramazith's Tower, sixth (top) floor
+AR0139|Ramazith's Tower, second floor
+AR0140|Ramazith's Tower, third floor
+AR0141|Ramazith's Tower, fourth floor
+AR0142|Ramazith's Tower, fifth floor
+AR0143|Oberan's Estate, ground floor
+AR0144|Oberan's Estate, second floor
+AR0145|Oberan's Estate, third floor (Helshara, Ithmeera, Delorna)
+AR0146|Thieves Guild, Maze
+AR0148|Thieves Guild, front house (fourth from west)
+AR0149|Ilmater's Shrine
+AR0150|Thieves Guild, front house (first from west)
+AR0151|Thieves Guild, front house (second from west)
+AR0152|Thieves Guild, front house (third from west)
+AR0153|Thieves Guild, main area (Alatos, Narlen Darkwalk)
+AR0154|Keexie Tavern, ground floor
+AR0155|Generic home, ground floor
+AR0156|Generic home, second floor
+AR0157|Quinn's home, ground floor
+AR0158|Quinn's home, second floor
+AR0159|Generic home, ground floor
+AR0160|Generic home, second floor
+AR0161|Degrodel's home
+AR0162|Louise and Laerta's home
+AR0163|Generic home, ground floor
+AR0164|Generic home, second floor
+AR0165|Generic tavern, ground floor (Connoly Finn)
+AR0166|Generic tavern, second floor (Borinole Mann)
+AR0167|Phierkas's home, ground floor
+AR0168|Phierkas's home, second floor
+AR0169|Generic home, ground floor
+AR0170|Generic home, second floor
+AR0171|Keexie Tavern, second floor
+AR0200|N Baldur's Gate (Ramazith's Tower, Duchal Palace)
+AR0224|BG Sewers, western area (Schlumpsha the Sewer King)
+AR0225|BG Sewers, central area (Ratchild)
+AR0226|BG Sewers, eastern area (ogre mage for Scar)
+AR0300|NE Baldur's Gate (Blushing Mermaid, Splurging Sturgeon, Counting House)
+AR0302|Generic home, ground floor
+AR0303|Generic home, second floor
+AR0304|Generic store
+AR0305|Generic home, ground floor
+AR0306|Generic home, second floor
+AR0307|Counting House, ground floor (Jacil or Ulf)
+AR0308|Counting House, second floor (Captain Kieres)
+AR0400|Farm NE of BG (Wenric, zombie farm)
+AR0401|Wenric's farmhouse
+AR0500|Durlag's Tower, exterior
+AR0501|Durlag's Tower, first subterranean level
+AR0502|Durlag's Tower, ground floor
+AR0503|Durlag's Tower, second floor
+AR0504|Durlag's Tower, third floor (Rigglio)
+AR0505|Durlag's Tower, fourth floor (Kirinhale)
+AR0506|Durlag's Tower, chessboard (fourth subterranean level)
+AR0507|Durlag's Tower, cold elemental challenge (fourth subterranean level)
+AR0508|Durlag's Tower, fire elemental challenge (fourth subterranean level)
+AR0509|Durlag's Tower, air elemental challenge (fourth subterranean level)
+AR0510|Durlag's Tower, earth elemental challenge (fourth subterranean level)
+AR0511|Durlag's Tower, second subterranean level (Pride, Avarice, Love, Fear)
+AR0512|Durlag's Tower, third subterranean level (Kiel, Islanne, door maze)
+AR0513|Durlag's Tower, fourth subterranean level (leads to elemental challenges)
+AR0514|Durlag's Tower, fifth subterranean level
+AR0515|Durlag's Tower, stone golem question chamber
+AR0516|Durlag's Tower, demon knight chamber (Dalton)
+AR0600|W Baldur's Gate (Hall of Wonders, Lady's House, Ragefast's home)
+AR0601|Seven Suns, ground floor
+AR0602|Seven Suns, second floor
+AR0603|Seven Suns, basement (Jhasso)
+AR0606|Flaming Fist HQ, basement
+AR0607|Flaming Fist HQ, ground floor
+AR0608|Flaming Fist HQ, second floor (Duke Eltan)
+AR0609|Temple of Umberlee (Jalantha Mistmyr)
+AR0611|Iron Throne, basement
+AR0612|Iron Throne, second floor (Dra'tan)
+AR0613|Iron Throne, third floor (Nortuary, Emissary Tar)
+AR0614|Iron Throne, fourth floor (Destus Gurn)
+AR0615|Iron Throne, fifth (top) floor (chapter five finale)
+AR0616|Iron Throne, ground floor (Triadore)
+AR0617|Tremain Belde'ar's home, ground floor
+AR0618|Tremain Belde'ar's home, second floor
+AR0619|Fenten's Home, ground floor
+AR0620|Fenten's Home, second floor
+AR0621|Iron Throne, roof
+AR0700|Central Baldur's Gate (marketplace, Oberan's home)
+AR0702|Harbormaster's building
+AR0703|Sorcerous Sundries, ground floor (Halbazzer Drin)
+AR0704|Sorcerous Sundries, second floor
+AR0705|Elfsong Tavern, ground floor (Brevlik)
+AR0706|Elfsong Tavern, second floor (Alyth, Cyrdemac)
+AR0707|Generic home, ground floor
+AR0708|Generic home, second floor
+AR0709|Generic home, ground floor
+AR0710|Generic home, second floor
+AR0711|Generic home, ground floor
+AR0712|Generic home, second floor
+AR0713|Generic home, ground floor
+AR0714|Generic home, second floor
+AR0715|Nadine's home, ground floor
+AR0716|Nadine's home, second floor
+AR0717|Generic home, ground floor
+AR0718|Generic home, second floor
+AR0719|Felonius Gist's home
+AR0720|Drakon Tavern
+AR0721|Warehouse full of rabid chickens
+AR0722|Generic home, ground floor
+AR0723|Generic home, second floor
+AR0724|Marketplace tent (gambling)
+AR0725|Marketplace tent (gambling)
+AR0726|Diviner's marketplace tent
+AR0800|E Baldur's Gate (Sorcerous Sundries, Elfsong Tavern)
+AR0801|Generic home, ground floor
+AR0802|Generic home, second floor
+AR0803|Maltz's Weapon Shop, ground floor
+AR0804|Maltz's Weapon Shop, second floor
+AR0805|Arkion's home, ground floor
+AR0806|Arkion's home, second floor
+AR0807|Generic inn, ground floor
+AR0808|Generic inn, second floor
+AR0809|Silence's store
+AR0810|Luck Aello's store
+AR0811|Generic home, ground floor
+AR0812|Generic home, second floor
+AR0813|Nemphre's home, ground floor
+AR0814|Nemphre's home, second floor
+AR0900|Wyrm's Crossing (bridge to BG, Tenya, Quayle)
+AR0901|Tenya's home
+AR1000|Ulgoth's Beard (Shandalar, Ike, Mendas)
+AR1001|Ulgoth Beard's Inn (Hurgan Stoneblade)
+AR1002|Aec'Letec cult building, basement (Aec'Letec)
+AR1003|Aec'Letec cult building, ground floor
+AR1004|Mendas's home
+AR1005|Therella's home
+AR1006|Generic home
+AR1007|Generic home
+AR1008|Ice island, exterior
+AR1009|Ice island, dungeon
+AR1010|Ice island, unused exit area
+AR1100|SW Baldur's Gate (Flaming Fist HQ, Merchant League, Seven Suns)
+AR1101|Generic home, ground floor (thieves Wiven, Dirk, Meakin and Sath)
+AR1102|Generic home, second floor
+AR1103|Generic home, ground floor
+AR1104|Generic home, second floor
+AR1105|Generic home, ground floor
+AR1106|Generic home, second floor
+AR1107|Generic home, ground floor
+AR1108|Generic home, second floor
+AR1109|Generic tavern, ground floor (Phandalyn)
+AR1110|Generic tavern, second floor
+AR1111|Sunin's home
+AR1112|Generic weapons store
+AR1113|Ye Olde Inn, ground floor (green slimes, AKA Slime Inn)
+AR1114|Ye Olde Inn, second floor (green slimes, AKA Slime Inn)
+AR1115|Generic potions store
+AR1116|Generic weapons store
+AR1117|Generic potions store
+AR1200|S Baldur's Gate (docks, Iron Throne, Low Lantern, Umberlee temple)
+AR1201|Generic home, ground floor (ogre mages)
+AR1202|Generic home, second floor
+AR1203|Generic home, ground floor
+AR1204|Generic home, second floor
+AR1205|Generic home, ground floor
+AR1206|Generic home, second floor
+AR1207|Warehouse (loose basilisk)
+AR1208|Warehouse (Noralee)
+AR1209|Generic home, ground floor (Larriaz the Sirine)
+AR1210|Generic home, second floor
+AR1211|Ghorak's home, ground floor
+AR1212|Ghorak's home, second floor
+AR1213|Cordyr's home, ground floor
+AR1214|Cordyr's home, second floor
+AR1215|Jopalin's Tavern
+AR1300|SE Baldur's Gate (Blade and Stars)
+AR1301|Warehouse
+AR1302|Well-Adjusted Al's General Store
+AR1303|Warehouse (Nadarin)
+AR1304|Generic home, ground floor
+AR1305|Generic home, second floor
+AR1306|Generic inn, ground floor (Euric)
+AR1307|Generic inn, second floor (Sanadal Gwist)
+AR1308|Generic home, ground floor
+AR1309|Generic home, second floor
+AR1310|Generic home, ground floor
+AR1311|Generic home, second floor
+AR1312|Gantolandan's home, ground floor
+AR1313|Gantolandan's home, second floor
+AR1314|Generic home, ground floor
+AR1315|Generic home, second floor
+AR1316|Generic home, ground floor (thieves Taxek and Michael)
+AR1317|Generic home, second floor
+AR1320|Generic store
+AR1400|Fishing village (Ajantis, farmer Brun, Gerde, lots of ankhegs)
+AR1401|Ankheg pit
+AR1402|Fisherman's home
+AR1403|Fisherman's home
+AR1404|Brun's home
+AR1500|Balduran's Isle, north (AKA Werewolf Isle)
+AR1501|Balduran's ship, ground floor
+AR1502|Balduran's ship, second floor
+AR1503|Balduran's ship, third floor
+AR1504|Balduran's ship, fourth floor (Karoug)
+AR1505|Dradeel's home
+AR1600|Cloakwood, third main area (shadow druids, Eldoth, Faldorn)
+AR1601|Tree house, ground floor
+AR1602|Tree house, second floor (Amarande)
+AR1603|Baby wyvern cave (Peter of the North)
+AR1700|Cloakwood, fourth main area (wyverns)
+AR1800|Cloakwood mines, exterior
+AR1801|Cloakwood mines, first subterranean level (river plug)
+AR1801A|Unused
+AR1802|Cloakwood mines, third subterranean level (Natasha, ogre mage)
+AR1803|Cloakwood mines, fourth subterranean level (Davaeorn, Stephan)
+AR1804|Cloakwood mines, second subterranean level (Yeslick, Hareishan)
+AR1805|Cloakwood mines, barracks ground floor
+AR1806|Cloakwood mines, barracks second floor
+AR1807|Cloakwood mines, elevator
+AR1808|Cloakwood mines, storehouse
+AR1809|Cloakwood mines, shed leading to elevator
+AR1900|Bandit Camp
+AR1901|Bandit Camp, main tent (Raemon, Venkt, Hakt, Britik)
+AR1902|Bandit Camp, tent (Ardenor Crush)
+AR1903|Bandit Camp, cave (Garclax)
+AR1904|Bandit Camp, tent (Tersus)
+AR1905|Bandit Camp, tent (Knott)
+AR1906|Bandit Camp, tent
+AR1907|Bandit Camp, tent (Taugosz Khosann)
+AR2000|Balduran's Isle, south (AKA Werewolf Isle, Delainy/Durlyle)
+AR2001|Generic hut
+AR2002|Main hut (Kaishas Gan, Tailas)
+AR2003|Generic hut
+AR2004|Generic hut
+AR2005|Generic hut
+AR2006|Generic hut
+AR2007|Taloun's hut
+AR2008|Generic hut
+AR2009|Generic hut
+AR2010|Generic hut
+AR2011|Generic hut
+AR2012|Werewolf caverns
+AR2100|Cloakwood, second main area (spider nest, Centeol)
+AR2101|Spider nest (Centeol)
+AR2200|Cloakwood, first main area (Aldeth Sashenstar, Seniyad, Coran)
+AR2215|Hunting lodge
+AR2300|Friendly Arm Inn, exterior
+AR2301|Friendly Arm Inn, ground floor (Bentley Mirrorshade, Khalid, Jaheira)
+AR2302|Friendly Arm Inn, second floor (Unshey)
+AR2303|Friendly Arm Inn, third floor (Landrin, Golden Pantaloons)
+AR2304|Friendly Arm Inn, Temple of Wisdom (Gellana Mirrorshade)
+AR2305|Friendly Arm Inn, generic home
+AR2306|Friendly Arm Inn, Joia's home
+AR2400|Peldvale (Viconia, Raiken)
+AR2600|Candlekeep (prologue), exterior
+AR2602|Candlekeep (prologue), Priest's Quarters (Shank)
+AR2605|Candlekeep (prologue), infirmary
+AR2606|Candlekeep (prologue), storehouse
+AR2607|Candlekeep (prologue), bunkhouse (Carbos)
+AR2608|Candlekeep Citadel, ground floor (Karan)
+AR2609|Candlekeep Citadel, second floor (Koveras)
+AR2610|Candlekeep Citadel, third floor (Rieltar, Brunos Costak, Tuth and Kestor)
+AR2611|Candlekeep Citadel, fourth floor (Shistal)
+AR2612|Candlekeep Citadel, fifth floor (Gorion's old room)
+AR2613|Candlekeep Catacombs, entrance area
+AR2614|Candlekeep Citadel, sixth floor (Ulraunt, Tethtoril)
+AR2615|Candlekeep Catacombs, first level
+AR2616|Candlekeep (prologue), Inn ground floor
+AR2617|Candlekeep (prologue), Inn second floor
+AR2618|Candlekeep (prologue), barracks
+AR2619|Candlekeep Catacombs, second level
+AR2622|Unused
+AR2623|Unused
+AR2624|Unused
+AR2626|Candlekeep (chapter 6), exterior
+AR2627|Candlekeep (chapter 6), Priest's Quarters
+AR2628|Candlekeep (chapter 6), storehouse
+AR2629|Candlekeep (chapter 6), Inn ground floor
+AR2630|Candlekeep (chapter 6), Inn second floor
+AR2631|Candlekeep (chapter 6), barracks
+AR2632|Candlekeep (chapter 6), bunkhouse
+AR2633|Candlekeep (chapter 6), infirmary
+AR2634|Unused
+AR2635|Unused
+AR2636|Unused
+AR2637|Unused
+AR2638|Unused
+AR2639|Unused
+AR2640|Unused
+AR2641|Unused
+AR2642|Unused
+AR2643|Candlekeep (prologue), warehouse (Obe's party combat training)
+AR2700|Lion's Way (E of Candlekeep, Gorion's ambush, Imoen, Xzar, Montaron)
+AR2800|Coast Way (S of Friendly Arm Inn, destroyed caravan)
+AR2900|Larswood (Teven, Osmadi, Corsone)
+AR3000|Spider Wood (E of Larswood, Thayvian Red Wizards)
+AR3100|Shipwreck's Coast (S of Candlekeep, Shoal, Droth, Mad Arcand, Surgeon)
+AR3200|High Hedge, exterior (Kivan)
+AR3201|High Hedge, generic house
+AR3202|High Hedge, interior (Thalantyr)
+AR3300|Beregost (Garrick, Jovial Juggler, Feldepost's Inn, Burning Wizard, Red Sheaf))
+AR3301|Thunderhammer Smithy (Taerom Fuiruim)
+AR3302|Generic home
+AR3303|Red Sheaf, second floor
+AR3304|Jovial Juggler, ground floor (Bjornin, Gurke)
+AR3305|Jovial Juggler, second floor front (Oogie)
+AR3306|Jovial Juggler, second floor rear
+AR3307|Burning Wizard, ground floor (Zhurlong)
+AR3308|Burning Wizard, second floor
+AR3309|Generic home, ground floor
+AR3310|Generic home, second floor
+AR3311|Generic home, ground floor
+AR3312|Generic home, second floor
+AR3313|Mirianne's home, ground floor
+AR3314|Mirianne's home, second floor
+AR3315|Landrin's home (spiders)
+AR3316|Generic home
+AR3317|Borland's home
+AR3318|Generic home
+AR3319|Galteran's home
+AR3320|Travenhurst Manor, ground floor
+AR3321|Travenhurst Manor, second floor
+AR3322|Travenhurst Manor, Servants' Quarters
+AR3323|Generic home, ground floor
+AR3324|Generic home, second floor
+AR3325|Generic home, second floor
+AR3326|Generic home, ground floor
+AR3327|Generic home, ground floor
+AR3328|Generic home, second floor
+AR3329|Generic home, second floor
+AR3330|Generic home, ground floor
+AR3331|Generic home, ground floor (Colquatle)
+AR3332|Generic home, second floor
+AR3333|Firebeard Elvenhair's home, ground floor
+AR3334|Firebeard Elvenhair's home, second floor
+AR3335|Generic home, ground floor
+AR3336|Generic home, second floor
+AR3337|Generic home, second floor
+AR3338|Generic home, ground floor
+AR3339|Generic home, ground floor
+AR3340|Generic home, second floor
+AR3341|Generic home, ground floor
+AR3342|Generic home, second floor
+AR3343|Generic home
+AR3344|Generic home
+AR3345|Generic home, ground floor
+AR3346|Generic home, second floor
+AR3347|Generic home, ground floor
+AR3348|Generic home, second floor
+AR3349|Generic home, ground floor
+AR3350|Generic home, second floor
+AR3351|Feldepost's Inn, ground floor (Marl)
+AR3352|Feldepost's Inn, second floor (Algernon)
+AR3353|Generic store (Kagain)
+AR3354|Generic home
+AR3355|Generic home, ground floor
+AR3356|Generic home, second floor
+AR3357|Red Sheaf, ground floor (Perdue)
+AR3400|Beregost Temple, exterior (Cattack)
+AR3401|Beregost Temple, vestibule
+AR3402|Beregost Temple, interior (AKA Song of the Morning, Keldath Ormlyr)
+AR3500|Mutamin's Garden (Shar-Teel, Mutamin, Korax, basilisks, Tamah)
+AR3600|Lighthouse (Safana, Ardrouine, Sil)
+AR3601|Black Alaric's cave (flesh golems)
+AR3700|Red Canyons (Bassilus, Melicamp)
+AR3800|South Beregost Road
+AR3802|Generic cave
+AR3900|Ulcaster School, exterior (Ulcaster, Icharyd)
+AR3901|Ulcaster School, dungeon
+AR4000|Gullykin, exterior
+AR4001|Jenkal's home, ground floor
+AR4002|Jenkal's home, second floor
+AR4003|Temple of Yondalla, ground floor
+AR4004|Temple of Yondalla, basement
+AR4005|Generic home, ground floor
+AR4006|Generic home, basement
+AR4007|Generic home, ground floor
+AR4008|Generic home, basement
+AR4009|Generic home, ground floor
+AR4010|Generic home, basement
+AR4011|Generic home, ground floor
+AR4012|Generic home, basement
+AR4013|Generic home, ground floor
+AR4014|Generic home, basement
+AR4100|Archaeological Site, exterior (Brage, Charleston Nib, Doomsayer)
+AR4101|Archaeological Site, interior tomb
+AR4200|Fisherman's Lake (Drizzt. Bjornin's half-ogres)
+AR4201|Unused
+AR4300|North Nashkel Road (N of Nashkel)
+AR4400|Lonely Peaks (Hulrik and Arabelle, Sarhedra, Arghain)
+AR4401|Generic cave (ettercaps)
+AR4500|Firewine Bridge (Kahrk, Carsa, Poe, Bentan, Melium)
+AR4501|Wyvern cave
+AR4600|Bear River (N of Gnoll Stronghold, Larel, Nevill, Jared)
+AR4700|Xvart Village (Nexlit, Ursa, Borda)
+AR4701|Generic cave (cave bear)
+AR4800|Nashkel (Minsc, Edwin, Berrun Ghastkill, Belching Dragon, Temple of Helm)
+AR4801|Nashkel Inn
+AR4802|Temple of Helm (Nalin)
+AR4803|Nashkel Store
+AR4804|Nashkel Manor, ground floor
+AR4805|Nashkel Manor, second floor (Samantha)
+AR4806|Joseph's home
+AR4807|Generic farmhouse
+AR4808|Generic home
+AR4809|Belching Dragon Tavern (Volo)
+AR4810|Nashkel barracks
+AR4900|Nashkel Carnival (Branwen, Great Gazib)
+AR4901|Small carnival tent (armor merchant)
+AR4902|Small carnival tent (black lotus)
+AR4903|Large carnival tent (Vitiare)
+AR4904|Large carnival tent (gambling)
+AR4905|Small carnival tent (rare potions merchant)
+AR4906|Small carnival tent (Zordral and Bentha)
+AR4907|Small carnival tent (magic items merchant)
+AR4908|Small carnival tent (melee weapons merchant)
+AR4909|Small carnival tent (ranged weapons merchant)
+AR5000|Valley of the Tombs (Nashkel mines exit, Narcillicus, Hentold)
+AR5001|Tombs
+AR5100|Gnoll Stronghold (Dynaheir)
+AR5101|Generic cave (xvarts)
+AR5102|Generic cave (Tome of Leadership and Influence)
+AR5103|Generic cave (cariron crawlers)
+AR5200|Dryad Falls (Cloudpeak Dryad, Drienne, Ingot, Krumm, Caldo)
+AR5201|Firewine Ruins (Lendarn, ogre mage, undead knights)
+AR5202|Generic cave
+AR5300|Fire Leaf Forest (S of Nashkel, Albert, Rufie, Vax, Sendai)
+AR5400|Nashkel Mines, exterior (Prism)
+AR5401|Nashkel Mines, first subterranean level (Dink)
+AR5402|Nashkel Mines, second subterranean level (Kylee, Beldin)
+AR5403|Nashkel Mines, third subterranean level (Joseph)
+AR5404|Nashkel Mines, fourth subterranean level
+AR5405|Nashkel Mines, Mulahey's lair (Xan, Mulahey)
+AR5406|Mine storehouse
+AR5500|Gibberling Mountains (Samuel, Hafiz)
+AR5506|Candlekeep Caves (Diarmid, Prat, Sakul, Tam, Bor)
+AR5600|Random encounter area
+AR5601|Random encounter area
+AR5610|Unused
+AR5700|Random encounter area
+AR5701|Random encounter area
+AR5710|Unused
+AR5800|Random encounter area
+AR5801|Random encounter area
+AR5810|Unused
+AR5900|Random encounter area
+AR5901|Random encounter area
+AR5910|Unused
+AR6000|Random encounter area
+AR6001|Random encounter area
+AR6010|Unused
+AR6100|Random encounter area
+AR6110|Unused
+AR7100|Unused
+AR9901|Unused
+TU0015|Baldur's Gate Estate (Tutorial starts here)
+TU0016|Baldur's Gate Estate (Tutorial area)
+TU0017|Baldur's Gate Estate (Tutorial area)
+TU0018|Baldur's Gate Estate Cellar (Tutorial area)
+OH1000|Dorn - Random Encounter Area
+OH2000|Neera - Adoy's Enclave, exterior
+OH2010|Neera - Adoy's Enclave, interior
+OH3000|Rasaad - Dark Moon temple, exterior
+OH3010|Rasaad - Dark Moon temple, interior
+OH3020|Rasaad - Dark Moon temple, interior
+OH3100|Rasaad - Dark Moon temple, interior
+OH9310|The Black Pits: Arena 1
+OH9350|The Black Pits: Arena 2
+OH9360|The Black Pits: Hub
+BD0010|Ducal Palace City Exterior
+BD0020|Sorcerous/Elf Song City Exterior
+BD0030|Flaming Fist City Exterior
+BD0040|Three Kegs City Exterior
+BD0050|Iron Throne City Exterior
+BD0060|Random Area - Cave Entrance
+BD0061|Random Area - Cave Interior from BD0060
+BD0062|Random Area - Cave Pool from BD0061
+BD0063|Random Area - Canyon Ambush
+BD0064|Random Area - Forest Paths
+BD0065|Random Area - Wilderness Open Area
+BD0066|Random Area - Wilderness Hole to BD0067
+BD0067|Random Area - Cave Interior from BD0066
+BD0070|The Scrying Pool - The Hooded Man Cutscene
+BD0071|The Scrying Pool - Caelar Cutscene
+BD0100|Ducal Palace, Second Floor
+BD0101|Ducal Palace, Leaving BG
+BD0102|Ducal Palace, First Floor
+BD0103|Ducal Palace, Third Floor
+BD0104|Flaming Fist HQ
+BD0105|Flaming Fist HQ, Basement
+BD0106|Three Old Kegs, First Floor
+BD0107|Three Old Kegs, Second Floor
+BD0108|Three Old Kegs, Third Floor
+BD0109|Elfsong Tavern, First Floor
+BD0110|Elfsong Tavern, Second Floor
+BD0111|Iron Throne Floor, First Floor
+BD0112|Baldur's Gate East
+BD0113|Underground Cavern Wyrms
+BD0114|Spider Cave
+BD0115|Vampire Cavern
+BD0116|Ducal Palace, Basement
+BD0117|Iron Throne, Basement
+BD0118|The Scrying Pool - Imoen Cutscene
+BD0120|Tomb Safehouse, First Floor
+BD0121|Sorcerous Sundries, First Floor
+BD0122|Sorcerous Sundries, Second Floor
+BD0130|Tomb Safehouse, Second Floor
+BD1000|Coast Way Crossing
+BD1010|Cave (generic)
+BD1100|The Dig
+BD1200|Lich Outpost
+BD2000|Boareskyr Bridge & Bridgefort
+BD2010|Cave (generic)
+BD2100|Bridgefort Interior
+BD3000|Allied Siege Camp
+BD4000|Dragonspear Castle, Exterior
+BD4100|Dragonspear Castle Keep, First Floor
+BD4300|Dragonspear Castle Basement
+BD4400|Avernus
+BD4500|Avernus Bridge
+BD4600|Avernus Interior
+BD4601|Avernus Elevator
+BD4700|Avernus Roof
+BD5000|Underground River Entrance
+BD5100|Underground River
+BD5110|Ettin Ghost Cave
+BD5200|The Warrens
+BD5300|Kanaglym
+BD6000|Abandoned Sewers & Caverns
+BD6200|Sewers Exit
+BD6100|The Ambush
+BD7000|Coast Way Forest
+BD7100|Troll Forest
+BD7110|Troll Cave
+BD7200|Forest of Wyrms
+BD7210|Wyrm Cave
+BD7220|Bugbear Stronghold
+BD7230|Temple of Cyric
+BD7300|Dead Man's Pass
+BD7310|Hidden Cellar/Treasure Stash
+BD7400|Bloodbark Grove
+BD7410|Vampire Hideout

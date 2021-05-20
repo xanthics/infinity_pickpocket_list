@@ -1,7 +1,7 @@
 .idea*
 /__pycache__*
-/cre/*.CRE
-/are/*.ARE
-/itm/*.ITM
-/tlk/*.TLK
-/bcs/*.BAF
+*.CRE
+*.ARE
+*.ITM
+*.TLK
+*.BAF
