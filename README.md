@@ -1,4 +1,4 @@
-Current iteration available [Here](https://xanthics.github.io/infinity_pickpocket_list/public/)
+Current iteration available [Here](https://xanthics.github.io/infinity_pickpocket_list/)
 
 File the relevant folder with files from your game, near infinity tested (ARE, CRE, ITM, BCS -- decompiles to BRE, TLK -- manually copied from install folder)
 
