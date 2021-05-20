@@ -274,7 +274,7 @@ def walk_game(game, game_str):
 				buf.append(f'\t["{are}", "{cre["name"]}", {cre["xp"]}, {cre["gold"]}, {itm["skill"]}, {itm["price"]}, "{itm["type"]}", "{itm["name"] + " (" + str(itm["quantity"]) + ")" if "quantity" in itm else itm["name"]}", "{itm["type"]}_{itm["name"]}"],')
 	buf.append(']\n')
 
-	with open(f'docs/{game}_table_data.py', 'w') as f:
+	with open(f'docs/public/{game}_table_data.py', 'w') as f:
 		f.write('\n'.join(buf))
 
 	buf = [f'gamestr = "{game_str}"', 'headers = ["Area", "NPC", "XP", "Gold Carried", "Pickpocket Skill", "Item Price (base)", "Item Type", "Item"]\n', 'areas = [']
@@ -289,11 +289,11 @@ def walk_game(game, game_str):
 		buf.append('\t],')
 	buf.append('}\n')
 
-	with open(f'docs/{game}_config_data.py', 'w') as f:
+	with open(f'docs/public/{game}_config_data.py', 'w') as f:
 		f.write('\n'.join(buf))
-	with open(f'docs/{game}.html', 'w') as f:
+	with open(f'docs/public/{game}.html', 'w') as f:
 		f.write(index.format(game, game_str))
-	with open(f'docs/{game}_handle_page.py', 'w') as f:
+	with open(f'docs/public/{game}_handle_page.py', 'w') as f:
 		f.write(handle.format(game))
 
 
