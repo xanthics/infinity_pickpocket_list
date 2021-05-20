@@ -2,7 +2,6 @@ index = '''<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <meta http-equiv="Refresh" content="2; url=public/index.html">
         <title>{1} Pickpocket List</title>
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3.9/brython.min.js"></script>
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3.9/brython_stdlib.js"></script>

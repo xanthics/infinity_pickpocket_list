@@ -2,7 +2,6 @@ root_index = '''<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <meta http-equiv="Refresh" content="2; url=public/index.html">
         <title>Infinity Engine Pickpocket List</title>
         <link href="css/layout.css" rel="stylesheet" type="text/css" />
         <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
