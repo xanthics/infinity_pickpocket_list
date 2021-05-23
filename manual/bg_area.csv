@@ -17,7 +17,7 @@ AR0018|Generic home, ground floor
 AR0019|Generic home, second floor
 AR0020|Generic home, ground floor
 AR0021|Generic home, second floor
-AR0100|NW Baldur's Gate (Helm & Cloak, Silvershield Estate)
+AR0100|NW Baldur's Gate (Helm & Cloak, Silvershield Estate)
 AR0101|Silvershield Estate, ground floor
 AR0102|Silvershield Estate, second floor
 AR0103|Splurging Sturgeon, ground floor (Lusselyn)
@@ -85,11 +85,11 @@ AR0168|Phierkas's home, second floor
 AR0169|Generic home, ground floor
 AR0170|Generic home, second floor
 AR0171|Keexie Tavern, second floor
-AR0200|N Baldur's Gate (Ramazith's Tower, Duchal Palace)
-AR0224|BG Sewers, western area (Schlumpsha the Sewer King)
-AR0225|BG Sewers, central area (Ratchild)
-AR0226|BG Sewers, eastern area (ogre mage for Scar)
-AR0300|NE Baldur's Gate (Blushing Mermaid, Splurging Sturgeon, Counting House)
+AR0200|N Baldur's Gate (Ramazith's Tower, Duchal Palace)
+AR0224|BG Sewers, western area (Schlumpsha the Sewer King)
+AR0225|BG Sewers, central area (Ratchild)
+AR0226|BG Sewers, eastern area (ogre mage for Scar)
+AR0300|NE Baldur's Gate (Blushing Mermaid, Splurging Sturgeon, Counting House)
 AR0302|Generic home, ground floor
 AR0303|Generic home, second floor
 AR0304|Generic store
@@ -97,7 +97,7 @@ AR0305|Generic home, ground floor
 AR0306|Generic home, second floor
 AR0307|Counting House, ground floor (Jacil or Ulf)
 AR0308|Counting House, second floor (Captain Kieres)
-AR0400|Farm NE of BG (Wenric, zombie farm)
+AR0400|Farm NE of BG (Wenric, zombie farm)
 AR0401|Wenric's farmhouse
 AR0500|Durlag's Tower, exterior
 AR0501|Durlag's Tower, first subterranean level
@@ -120,9 +120,9 @@ AR0600|W Baldur's Gate (Hall of Wonders, Lady's House, Ragefast's home)
 AR0601|Seven Suns, ground floor
 AR0602|Seven Suns, second floor
 AR0603|Seven Suns, basement (Jhasso)
-AR0606|Flaming Fist HQ, basement
-AR0607|Flaming Fist HQ, ground floor
-AR0608|Flaming Fist HQ, second floor (Duke Eltan)
+AR0606|Flaming Fist HQ, basement
+AR0607|Flaming Fist HQ, ground floor
+AR0608|Flaming Fist HQ, second floor (Duke Eltan)
 AR0609|Temple of Umberlee (Jalantha Mistmyr)
 AR0611|Iron Throne, basement
 AR0612|Iron Throne, second floor (Dra'tan)
@@ -161,7 +161,7 @@ AR0723|Generic home, second floor
 AR0724|Marketplace tent (gambling)
 AR0725|Marketplace tent (gambling)
 AR0726|Diviner's marketplace tent
-AR0800|E Baldur's Gate (Sorcerous Sundries, Elfsong Tavern)
+AR0800|E Baldur's Gate (Sorcerous Sundries, Elfsong Tavern)
 AR0801|Generic home, ground floor
 AR0802|Generic home, second floor
 AR0803|Maltz's Weapon Shop, ground floor
@@ -176,7 +176,7 @@ AR0811|Generic home, ground floor
 AR0812|Generic home, second floor
 AR0813|Nemphre's home, ground floor
 AR0814|Nemphre's home, second floor
-AR0900|Wyrm's Crossing (bridge to BG, Tenya, Quayle)
+AR0900|Wyrm's Crossing (bridge to BG, Tenya, Quayle)
 AR0901|Tenya's home
 AR1000|Ulgoth's Beard (Shandalar, Ike, Mendas)
 AR1001|Ulgoth Beard's Inn (Hurgan Stoneblade)
@@ -189,7 +189,7 @@ AR1007|Generic home
 AR1008|Ice island, exterior
 AR1009|Ice island, dungeon
 AR1010|Ice island, unused exit area
-AR1100|SW Baldur's Gate (Flaming Fist HQ, Merchant League, Seven Suns)
+AR1100|SW Baldur's Gate (Flaming Fist HQ, Merchant League, Seven Suns)
 AR1101|Generic home, ground floor (thieves Wiven, Dirk, Meakin and Sath)
 AR1102|Generic home, second floor
 AR1103|Generic home, ground floor
@@ -202,12 +202,12 @@ AR1109|Generic tavern, ground floor (Phandalyn)
 AR1110|Generic tavern, second floor
 AR1111|Sunin's home
 AR1112|Generic weapons store
-AR1113|Ye Olde Inn, ground floor (green slimes, AKA Slime Inn)
-AR1114|Ye Olde Inn, second floor (green slimes, AKA Slime Inn)
+AR1113|Ye Olde Inn, ground floor (green slimes, AKA Slime Inn)
+AR1114|Ye Olde Inn, second floor (green slimes, AKA Slime Inn)
 AR1115|Generic potions store
 AR1116|Generic weapons store
 AR1117|Generic potions store
-AR1200|S Baldur's Gate (docks, Iron Throne, Low Lantern, Umberlee temple)
+AR1200|S Baldur's Gate (docks, Iron Throne, Low Lantern, Umberlee temple)
 AR1201|Generic home, ground floor (ogre mages)
 AR1202|Generic home, second floor
 AR1203|Generic home, ground floor
@@ -223,7 +223,7 @@ AR1212|Ghorak's home, second floor
 AR1213|Cordyr's home, ground floor
 AR1214|Cordyr's home, second floor
 AR1215|Jopalin's Tavern
-AR1300|SE Baldur's Gate (Blade and Stars)
+AR1300|SE Baldur's Gate (Blade and Stars)
 AR1301|Warehouse
 AR1302|Well-Adjusted Al's General Store
 AR1303|Warehouse (Nadarin)
@@ -247,7 +247,7 @@ AR1401|Ankheg pit
 AR1402|Fisherman's home
 AR1403|Fisherman's home
 AR1404|Brun's home
-AR1500|Balduran's Isle, north (AKA Werewolf Isle)
+AR1500|Balduran's Isle, north (AKA Werewolf Isle)
 AR1501|Balduran's ship, ground floor
 AR1502|Balduran's ship, second floor
 AR1503|Balduran's ship, third floor
@@ -277,7 +277,7 @@ AR1904|Bandit Camp, tent (Tersus)
 AR1905|Bandit Camp, tent (Knott)
 AR1906|Bandit Camp, tent
 AR1907|Bandit Camp, tent (Taugosz Khosann)
-AR2000|Balduran's Isle, south (AKA Werewolf Isle, Delainy/Durlyle)
+AR2000|Balduran's Isle, south (AKA Werewolf Isle, Delainy/Durlyle)
 AR2001|Generic hut
 AR2002|Main hut (Kaishas Gan, Tailas)
 AR2003|Generic hut
@@ -340,11 +340,11 @@ AR2640|Unused
 AR2641|Unused
 AR2642|Unused
 AR2643|Candlekeep (prologue), warehouse (Obe's party combat training)
-AR2700|Lion's Way (E of Candlekeep, Gorion's ambush, Imoen, Xzar, Montaron)
-AR2800|Coast Way (S of Friendly Arm Inn, destroyed caravan)
+AR2700|Lion's Way (E of Candlekeep, Gorion's ambush, Imoen, Xzar, Montaron)
+AR2800|Coast Way (S of Friendly Arm Inn, destroyed caravan)
 AR2900|Larswood (Teven, Osmadi, Corsone)
-AR3000|Spider Wood (E of Larswood, Thayvian Red Wizards)
-AR3100|Shipwreck's Coast (S of Candlekeep, Shoal, Droth, Mad Arcand, Surgeon)
+AR3000|Spider Wood (E of Larswood, Thayvian Red Wizards)
+AR3100|Shipwreck's Coast (S of Candlekeep, Shoal, Droth, Mad Arcand, Surgeon)
 AR3200|High Hedge, exterior (Kivan)
 AR3201|High Hedge, generic house
 AR3202|High Hedge, interior (Thalantyr)
@@ -408,7 +408,7 @@ AR3356|Generic home, second floor
 AR3357|Red Sheaf, ground floor (Perdue)
 AR3400|Beregost Temple, exterior (Cattack)
 AR3401|Beregost Temple, vestibule
-AR3402|Beregost Temple, interior (AKA Song of the Morning, Keldath Ormlyr)
+AR3402|Beregost Temple, interior (AKA Song of the Morning, Keldath Ormlyr)
 AR3500|Mutamin's Garden (Shar-Teel, Mutamin, Korax, basilisks, Tamah)
 AR3600|Lighthouse (Safana, Ardrouine, Sil)
 AR3601|Black Alaric's cave (flesh golems)
@@ -436,12 +436,12 @@ AR4100|Archaeological Site, exterior (Brage, Charleston Nib, Doomsayer)
 AR4101|Archaeological Site, interior tomb
 AR4200|Fisherman's Lake (Drizzt. Bjornin's half-ogres)
 AR4201|Unused
-AR4300|North Nashkel Road (N of Nashkel)
+AR4300|North Nashkel Road (N of Nashkel)
 AR4400|Lonely Peaks (Hulrik and Arabelle, Sarhedra, Arghain)
 AR4401|Generic cave (ettercaps)
 AR4500|Firewine Bridge (Kahrk, Carsa, Poe, Bentan, Melium)
 AR4501|Wyvern cave
-AR4600|Bear River (N of Gnoll Stronghold, Larel, Nevill, Jared)
+AR4600|Bear River (N of Gnoll Stronghold, Larel, Nevill, Jared)
 AR4700|Xvart Village (Nexlit, Ursa, Borda)
 AR4701|Generic cave (cave bear)
 AR4800|Nashkel (Minsc, Edwin, Berrun Ghastkill, Belching Dragon, Temple of Helm)
@@ -474,7 +474,7 @@ AR5103|Generic cave (cariron crawlers)
 AR5200|Dryad Falls (Cloudpeak Dryad, Drienne, Ingot, Krumm, Caldo)
 AR5201|Firewine Ruins (Lendarn, ogre mage, undead knights)
 AR5202|Generic cave
-AR5300|Fire Leaf Forest (S of Nashkel, Albert, Rufie, Vax, Sendai)
+AR5300|Fire Leaf Forest (S of Nashkel, Albert, Rufie, Vax, Sendai)
 AR5400|Nashkel Mines, exterior (Prism)
 AR5401|Nashkel Mines, first subterranean level (Dink)
 AR5402|Nashkel Mines, second subterranean level (Kylee, Beldin)
