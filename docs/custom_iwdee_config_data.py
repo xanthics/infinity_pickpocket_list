@@ -1,4 +1,4 @@
-gamestr = "Icewind Dale EE 2.6.6.0 + BetterHOF + CDTWEAKS"
+gamestr = "Icewind Dale EE 2.6.5.0 + BetterHOF + CDTWEAKS"
 headers = ["Area", "NPC", "XP", "Gold Carried", "Pickpocket Skill", "Item Price (base)", "Item Type", "Item"]
 
 areas = [
@@ -122,9 +122,9 @@ types = {
 		"Tome of Leadership and Influence",
 		"Tome of Understanding",
 		"Umber Hulk Hide",
-		"mernbook.itm",
-		"mernmanu.itm",
-		"merntome.itm",
+		"mernbook.itm ()TLK missing name)",
+		"mernmanu.itm ()TLK missing name)",
+		"merntome.itm ()TLK missing name)",
 		"rndtre50.itm",
 		"rndtre53.itm",
 		"rndtre61.itm",
