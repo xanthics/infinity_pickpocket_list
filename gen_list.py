@@ -34,6 +34,23 @@ def getname(idx, game):
 		return mystr(text[abs_str_off+str_off:abs_str_off+str_off+str_len])
 
 
+# Return an array with difficulties for pickpocketing various equipment slots
+def load_pickpocketting(game):
+	# https://baldursgate.fandom.com/wiki/Thief#Pick_Pockets
+	key_order = ['helmet', 'armour', 'shield', 'gauntlets', 'ring_left', 'ring_right', 'amulet', 'belt', 'boots',
+				 'weapon1', 'weapon2', 'weapon3', 'weapon4', 'ammo1', 'ammo2', 'ammo3', 'ammo4', 'cloak', 'misc1', 'misc2', 'misc3',
+				 'inv1', 'inv2', 'inv3', 'inv4', 'inv5', 'inv6', 'inv7', 'inv8', 'inv9', 'inv10', 'inv11', 'inv12', 'inv13', 'inv14', 'inv15', 'inv16']
+	vals = {}
+	with open(f'{game}_files\\sltsteal.2da', 'r') as file:
+		# skip headers
+		for i in range(3):
+			file.readline()
+		for line in file:
+			l_list = line.lower().strip().split()
+			vals[l_list[0]] = int(l_list[1])
+	return [vals[x] for x in key_order]
+
+
 # Given a character name, return useful information
 # https://gibberlings3.github.io/iesdp/file_formats/ie_formats/cre_v1.htm
 def view_char(cre_file, item_list, game, dlg_store):
@@ -82,9 +99,7 @@ def view_char(cre_file, item_list, game, dlg_store):
 				items.append((mystr(text[t_off:t_off + 8]).lower(), bool(struct.unpack('i', text[t_off + 0x10:t_off + 0x10 + 4])[0] & 0b1010), struct.unpack('h', text[t_off + 0xa:t_off + 0xa + 2])[0]))
 			pickpocket = struct.unpack('b', text[pick_off:pick_off + 1])[0]
 			equip_offset = struct.unpack('i', text[equip_off:equip_off + 4])[0]
-			# https://baldursgate.fandom.com/wiki/Thief#Pick_Pockets
-			pick_difficulty = [0, 0, 0, 80, 60, 60, 80, 80, 0, 95, 95, 95, 95, 50, 50, 50, 50, 80, 50, 50, 50,  # helmet, armor, shield, gloves, rings(2), amulet, belt, boots, weapon(4), quiver(4), cloak, quick item(3)
-							   10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10]  # inventory slots(16), 0 means can't pickpocket
+			pick_difficulty = load_pickpocketting(game)
 			equipped = struct.unpack('h', text[38 * 2 + equip_offset:38 * 2 + equip_offset + 2])[0]
 			if 0 <= equipped < 4:
 				pick_difficulty[9 + equipped] = 0
@@ -249,7 +264,6 @@ def view_bcs(baf_file, cre_dict):
 
 # NOTES: sell value is 1/2 of an items value.  Items with charges are value/max_count*current_count
 def walk_game(game, game_str):
-	print(f"Starting: {game} = {game_str}")
 	area_lookup = gen_area_names(game)
 	# Areas -> actors -> items, so generate in reverse
 	# Create a dictionary with all valid items that can drop
