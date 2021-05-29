@@ -328,7 +328,7 @@ def walk_game(game, game_str):
 			item = view_item(os.path.join(r, file), game)
 			# note items with no name
 			if not item['name']:
-				item['name'] = f"{file}{'' if file.startswith('rnd') else ' ()TLK missing name)'}"
+				item['name'] = f"{file}{'' if file.startswith('rnd') else ' (TLK missing name)'}"
 			# remove EET items that appear to be script/difficulty related, ignore items with no proper name
 			if not (item['name'].startswith('dw#') and item['price'] == 0):
 				items[file[:-4].lower()] = item

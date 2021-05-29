@@ -68,9 +68,9 @@ types = {
 		"Tome of Leadership and Influence",
 		"Tome of Understanding",
 		"Umber Hulk Hide",
-		"mernbook.itm ()TLK missing name)",
-		"mernmanu.itm ()TLK missing name)",
-		"merntome.itm ()TLK missing name)",
+		"mernbook.itm (TLK missing name)",
+		"mernmanu.itm (TLK missing name)",
+		"merntome.itm (TLK missing name)",
 		"rndtre50.itm",
 	],
 	"Darts": [

@@ -1077,7 +1077,7 @@ types = {
 		"rndtre09.itm",
 		"rndtri02.itm",
 		"rndwand.itm",
-		"sodtre09.itm ()TLK missing name)",
+		"sodtre09.itm (TLK missing name)",
 	],
 	"Books/Broken shields/bracelets": [
 		"Book of Rituals",
@@ -1499,7 +1499,7 @@ types = {
 		"The Jester's Folly",
 		"The Victor",
 		"Topsider's Crutch",
-		"swordi.itm ()TLK missing name)",
+		"swordi.itm (TLK missing name)",
 	],
 	"Scroll": [
 		"Abi-Dalzim's Horrid Wilting",
