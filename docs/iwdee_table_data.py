@@ -8,7 +8,7 @@ data = [
 	["ar1101 - Easthaven (finale) - Temple of Tempus/ice tower first floor", "Everard", 5000, 21, 10, 75, "Potion", "Potion of Healing", "Potion_Potion of Healing"],
 	["ar1101 - Easthaven (finale) - Temple of Tempus/ice tower first floor", "Everard", 5000, 21, 10, 75, "Potion", "Potion of Healing", "Potion_Potion of Healing"],
 	["ar2004 - Kuldahar Pass - Mill - entrance", "Uligar", 35, 55, 10, 200, "Scroll", "Blur", "Scroll_Blur"],
-	["ar2004 - Kuldahar Pass - Mill - entrance", "Uligar", 35, 55, 10, 0, "Books & misc", "rndtre26.itm", "Books & misc_rndtre26.itm"],
+	["ar2004 - Kuldahar Pass - Mill - entrance", "Uligar", 35, 55, 10, 0, "Books & misc", "RNDTRE26.ITM (TLK missing name)", "Books & misc_RNDTRE26.ITM (TLK missing name)"],
 	["ar2100 (Spawned) - Kuldahar", "Arundel", 3000, 0, 10, 10000, "Ring", "Ring of Free Action", "Ring_Ring of Free Action"],
 	["ar2102 - Kuldahar - Orrick the Grey's tower - study", "Orrick the Gray", 4000, 47, 10, 10000, "Ring", "Ring of Free Action", "Ring_Ring of Free Action"],
 	["ar2102 - Kuldahar - Orrick the Grey's tower - study", "Orrick the Gray", 4000, 47, 10, 1800, "Amulet", "Amulet of Metaspell Influence", "Amulet_Amulet of Metaspell Influence"],

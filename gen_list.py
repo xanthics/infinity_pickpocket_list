@@ -22,7 +22,7 @@ def getname(idx, game):
 	if idx == -1:
 		return ""
 	assert idx >= 0, f"Invalid Name/String index: {idx}"
-	with open(f'{game}_files\\dialog.tlk', 'rb') as file:
+	with open(f'{game}_files/dialog.tlk', 'rb') as file:
 		text = file.read()
 		max_str = struct.unpack('i', text[0xa:0xa+4])[0]
 		if idx >= max_str:
@@ -41,7 +41,7 @@ def load_pickpocketting(game):
 				 'weapon1', 'weapon2', 'weapon3', 'weapon4', 'ammo1', 'ammo2', 'ammo3', 'ammo4', 'cloak', 'misc1', 'misc2', 'misc3',
 				 'inv1', 'inv2', 'inv3', 'inv4', 'inv5', 'inv6', 'inv7', 'inv8', 'inv9', 'inv10', 'inv11', 'inv12', 'inv13', 'inv14', 'inv15', 'inv16']
 	vals = {}
-	with open(f'{game}_files\\sltsteal.2da', 'r') as file:
+	with open(f'{game}_files/SLTSTEAL.2DA', 'r') as file:
 		# skip headers
 		for i in range(3):
 			file.readline()
@@ -186,6 +186,7 @@ def view_area(are_file, cre_dict):
 # https://gibberlings3.github.io/iesdp/file_formats/ie_formats/sto_v1.htm
 def view_store(sto_file):
 	ret = {'items': [], 'difficult': 0}
+	print(sto_file)
 	with open(sto_file, 'rb') as file:
 		try:
 			text = file.read()
@@ -282,20 +283,20 @@ def walk_game(game, game_str):
 		baf_files = []
 		sto_files = []
 		dlg_files = []
-		for f_temp in f:
-			f_temp = f_temp.lower()
+		for f_val in f:
+			f_temp = f_val.lower()
 			if f_temp.endswith('.itm'):
-				itm_files.append(f_temp)
+				itm_files.append(f_val)
 			elif f_temp.endswith('.cre'):
-				cre_files.append(f_temp)
+				cre_files.append(f_val)
 			elif f_temp.endswith('.are'):
-				are_files.append(f_temp)
+				are_files.append(f_val)
 			elif f_temp.endswith('.baf'):
-				baf_files.append(f_temp)
+				baf_files.append(f_val)
 			elif f_temp.endswith('.sto'):
-				sto_files.append(f_temp)
+				sto_files.append(f_val)
 			elif f_temp.endswith('.dlg'):
-				dlg_files.append(f_temp)
+				dlg_files.append(f_val)
 			else:
 				print(f"Unexpected file: '{f_temp}'")
 
@@ -304,7 +305,7 @@ def walk_game(game, game_str):
 		print(f"Reading {len_f} STO files.")
 		for c, file in enumerate(sto_files):
 			if not c % tick:
-				print(f"{game} STO: {c}/{len_f}")
+				print(f"{game} STO: {c/len_f*100:2f}")
 			item = view_store(os.path.join(r, file))
 			if item['items']:
 				stores[file[:-4].lower()] = item
@@ -314,7 +315,7 @@ def walk_game(game, game_str):
 		print(f"Reading {len_f} DLG files.")
 		for c, file in enumerate(dlg_files):
 			if not c % tick:
-				print(f"{game} DLG: {c}/{len_f}")
+				print(f"{game} DLG: {c/len_f*100:.2f}")
 			item = view_dlg(os.path.join(r, file), stores)
 			if item:
 				dlg_store[file[:-4].lower()] = item
@@ -324,7 +325,7 @@ def walk_game(game, game_str):
 		print(f"Reading {len_f} ITM files.")
 		for c, file in enumerate(itm_files):
 			if not c % tick:
-				print(f"{game} ITM: {c}/{len_f}")
+				print(f"{game} ITM: {c/len_f*100:.2f}")
 			item = view_item(os.path.join(r, file), game)
 			# note items with no name
 			if not item['name']:
@@ -338,7 +339,7 @@ def walk_game(game, game_str):
 		print(f"Reading {len_f} CRE files.")
 		for c, file in enumerate(cre_files):
 			if not c % tick:
-				print(f"{game} CRE: {c}/{len_f}")
+				print(f"{game} CRE: {c/len_f*100:.2f}")
 			person = view_char(os.path.join(r, file), items, game, dlg_store)
 			if person['items'] or 'stores' in person:
 				if not person['name']:
@@ -351,7 +352,7 @@ def walk_game(game, game_str):
 		print(f"Reading {len_f} ARE files.")
 		for c, file in enumerate(are_files):
 			if not c % tick:
-				print(f"{game} ARE: {c}/{len_f}")
+				print(f"{game} ARE: {c/len_f*100:.2f}")
 			area, npcs = view_area(os.path.join(r, file), cre_dict)
 			if area:
 				npc_list -= npcs
@@ -363,7 +364,7 @@ def walk_game(game, game_str):
 		print(f"Reading {len_f} BAF files.")
 		for c, file in enumerate(baf_files):
 			if not c % tick:
-				print(f"{game} ARE: {c}/{len_f}")
+				print(f"{game} ARE: {c/len_f*100:.2f}")
 			area, npcs = view_bcs(os.path.join(r, file), cre_dict)
 			if area:
 				npc_list -= npcs

@@ -13,7 +13,7 @@ def gen_area_names(game):
 	}
 	area_lookup = {}
 
-	with open(f"manual/{keys[game]}.csv", 'r') as f:
+	with open(f"manual/{keys[game]}.csv", 'r', encoding="windows-1252") as f:
 		for line in f:
 			l = line.strip().split('|')
 			if len(l) == 2:

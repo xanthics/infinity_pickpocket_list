@@ -40,9 +40,9 @@ types = {
 	],
 	"Books & misc": [
 		"Maiden Ilmadia's Badge",
+		"RNDTRE26.ITM (TLK missing name)",
 		"Tiernon's Hearthstone",
 		"Umber Hulk Hide",
-		"rndtre26.itm",
 	],
 	"Large sword": [
 		"Bastard Sword ",
