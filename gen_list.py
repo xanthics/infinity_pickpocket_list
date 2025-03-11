@@ -110,7 +110,7 @@ def view_char(cre_file, item_list, game, dlg_store):
 					if item_count > item_idx >= 0:
 						item_itm = f"{items[item_idx][0]}"
 						if item_itm in item_list and item_list[item_itm]['drop'] and not items[item_idx][1]:
-							ret['items'].append({'type': item_list[item_itm]['type'], 'name': item_list[item_itm]['name'], 'price': item_list[item_itm]['price'], 'skill': pickpocket + pick_difficulty[idx]})
+							ret['items'].append({'type': item_list[item_itm]['type'], 'name': item_list[item_itm]['name'], 'price': item_list[item_itm]['price'], 'skill': max(pickpocket, pick_difficulty[idx])})
 							if items[item_idx][2] > 1 and item_list[item_itm]['type'] in ['Books & misc', 'Arrows', 'Potion', 'Scroll', 'Bullets', 'Darts', 'Bolts', 'Gold pieces', 'Gem', 'Wand', 'Containers/eye/broken armor', 'Books/Broken shields/bracelets', 'Familiars/Broken swords/earrings', 'Fur/pelt']:
 								ret['items'][-1]['quantity'] = items[item_idx][2]
 		return ret
