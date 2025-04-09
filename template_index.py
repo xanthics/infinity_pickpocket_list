@@ -10,6 +10,8 @@ index = '''<!DOCTYPE html>
     </head>
     <body onload="brython(1)">
         <section class="main">
+            <p>Any store is percent chance to fail, not pickpocket skill.</p>
+            <p>When comparing slot difficulty and pickpocket skill, the maximum value of the two is your minimum chance to succeed.  For Pickpocket skill on target, you have a 1% chance of success for every point higher your skill is versus target, starting at 0 and scaling to 99.  </p>
             <div id="show_hide"></div>
             <div id="loading">
                 This page requires javascript in order to work correctly.

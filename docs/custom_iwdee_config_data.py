@@ -1,5 +1,5 @@
 gamestr = "Icewind Dale EE 2.6.5.0 + BetterHOF + CDTWEAKS"
-headers = ["Area", "NPC", "XP", "Gold Carried", "Pickpocket Skill", "Item Price (base)", "Item Type", "Item"]
+headers = ["Area", "NPC", "XP", "Gold Carried", "Slot Difficulty", "Pickpocket Skill", "Item Price (base)", "Item Type", "Item"]
 
 areas = [
 	"animtest (Spawned)",
@@ -62,12 +62,12 @@ types = {
 		"Arrow of the Hand +8",
 	],
 	"Books & misc": [
-		"MERNBOOK.ITM (TLK missing name)",
-		"MERNMANU.ITM (TLK missing name)",
-		"MERNTOME.ITM (TLK missing name)",
+		"MERNBOOK.ITM (not in TLK)",
+		"MERNMANU.ITM (not in TLK)",
+		"MERNTOME.ITM (not in TLK)",
 		"Maiden Ilmadia's Badge",
 		"Manual of Gainful Exercise",
-		"RNDTRE50.ITM (TLK missing name)",
+		"RNDTRE50.ITM (not in TLK)",
 		"Tome of Clear Thought",
 		"Tome of Leadership and Influence",
 		"Tome of Understanding",

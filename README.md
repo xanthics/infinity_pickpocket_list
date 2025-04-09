@@ -2,7 +2,7 @@ Current iteration available [Here](https://xanthics.github.io/infinity_pickpocke
 
 File the relevant folder with files from your game, near infinity tested.
 
-    Minimum(includes pickpocket): SLTSTEAL.2DA, *.ARE, *.CRE, *.ITM, dialog.TLK -- manually copied from install folder
+    Minimum(includes pickpocket): SLTSTEAL.2DA, SKILLDEX.2DA, SKILLRAC.2DA, RACE.IDS,*.ARE, *.CRE, *.ITM, dialog.TLK -- manually copied from install folder
     Spawned: *.BCS -- decompiles to BRE
     Stores: *.DLG, *.STO
 

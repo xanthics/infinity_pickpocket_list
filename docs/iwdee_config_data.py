@@ -1,5 +1,5 @@
 gamestr = "Icewind Dale EE 2.6.6.0"
-headers = ["Area", "NPC", "XP", "Gold Carried", "Pickpocket Skill", "Item Price (base)", "Item Type", "Item"]
+headers = ["Area", "NPC", "XP", "Gold Carried", "Slot Difficulty", "Pickpocket Skill", "Item Price (base)", "Item Type", "Item"]
 
 areas = [
 	"animtest (Spawned)",
@@ -40,7 +40,7 @@ types = {
 	],
 	"Books & misc": [
 		"Maiden Ilmadia's Badge",
-		"RNDTRE26.ITM (TLK missing name)",
+		"RNDTRE26.ITM (not in TLK)",
 		"Tiernon's Hearthstone",
 		"Umber Hulk Hide",
 	],

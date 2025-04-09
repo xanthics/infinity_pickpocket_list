@@ -51,9 +51,50 @@ def load_pickpocketting(game):
 	return [vals[x] for x in key_order]
 
 
+# Return a dictionary with dexterity bonuses to pickpocket
+def load_dex_bonus(game):
+	vals = {}
+	with open(f'{game}_files/SKILLDEX.2DA', 'r') as file:
+		# skip headers
+		for i in range(3):
+			file.readline()
+		for line in file:
+			l_list = line.lower().strip().split()
+			vals[int(l_list[0])] = int(l_list[1])
+	return vals
+
+
+# Return a dictionary with racial bonuses to pickpocket
+def load_race_bonus(game):
+	vals = {}
+	with open(f'{game}_files/SKILLRAC.2DA', 'r') as file:
+		# skip headers
+		for i in range(3):
+			file.readline()
+		for line in file:
+			l_list = line.lower().strip().split()
+			vals[l_list[0]] = int(l_list[1])
+	return vals
+
+
+# Return a dictionary with the racial bonuses associated with racial id number
+def load_race_lookup(game):
+	lrb = load_race_bonus(game)
+	vals = {}
+	with open(f'{game}_files/RACE.IDS', 'r') as file:
+		# skip headers
+		for i in range(1):
+			file.readline()
+		for line in file:
+			l_list = line.lower().strip().split()
+			if l_list:
+				vals[int(l_list[0])] = lrb[l_list[1]] if l_list[1] in lrb else 0
+	return vals
+
+
 # Given a character name, return useful information
 # https://gibberlings3.github.io/iesdp/file_formats/ie_formats/cre_v1.htm
-def view_char(cre_file, item_list, game, dlg_store):
+def view_char(cre_file, item_list, game, dlg_store, sltsteal, skilldex, skillrac):
 	with open(cre_file, 'rb') as file:
 		try:
 			text = file.read()
@@ -63,7 +104,7 @@ def view_char(cre_file, item_list, game, dlg_store):
 		assert (mystr(text[0x0:0x0+4]) == 'CRE '), f"Invalid File Type: '{mystr(text[0x0:0x0+4])}'"
 		version = mystr(text[0x4:0x4+4]).lower()
 		ret = {}
-		# Check version since eah one stores files differently
+		# Check version since each one stores files differently
 		if version == 'v1.0':
 			name = 0x8
 			race = 0x272
@@ -73,6 +114,7 @@ def view_char(cre_file, item_list, game, dlg_store):
 			item_count_off = 0x2c0
 			item_offset_off = 0x2bc
 			pick_off = 0x6a
+			dex = 0x023c
 			equip_off = 0x2b8
 			enemy = 0x270
 			dlg = 0x2cc
@@ -82,6 +124,7 @@ def view_char(cre_file, item_list, game, dlg_store):
 		# get list of items, check item slots, assign difficulty
 		item_count = struct.unpack('i', text[item_count_off:item_count_off+4])[0]
 		f_race = struct.unpack('B', text[race:race+1])[0]
+		f_dex = struct.unpack('B', text[dex:dex+1])[0]
 		f_status = struct.unpack('I', text[status:status + 4])[0]
 		ret['name'] = getname(struct.unpack('i', text[name:name + 4])[0], game)
 		ret['xp'] = struct.unpack('i', text[xp:xp + 4])[0]
@@ -98,19 +141,20 @@ def view_char(cre_file, item_list, game, dlg_store):
 				t_off = idx * 0x14 + item_offset
 				items.append((mystr(text[t_off:t_off + 8]).lower(), bool(struct.unpack('i', text[t_off + 0x10:t_off + 0x10 + 4])[0] & 0b1010), struct.unpack('h', text[t_off + 0xa:t_off + 0xa + 2])[0]))
 			pickpocket = struct.unpack('b', text[pick_off:pick_off + 1])[0]
+			if pickpocket > 0:
+				 pickpocket += skillrac[f_race] + skilldex[f_dex]
 			equip_offset = struct.unpack('i', text[equip_off:equip_off + 4])[0]
-			pick_difficulty = load_pickpocketting(game)
 			equipped = struct.unpack('h', text[38 * 2 + equip_offset:38 * 2 + equip_offset + 2])[0]
 			if 0 <= equipped < 4:
-				pick_difficulty[9 + equipped] = 0
-			for idx, slot in enumerate(pick_difficulty):
+				sltsteal[9 + equipped] = 0
+			for idx, slot in enumerate(sltsteal):
 				if slot:
 					s_off = idx * 2 + equip_offset
 					item_idx = struct.unpack('h', text[s_off:s_off + 2])[0]
 					if item_count > item_idx >= 0:
 						item_itm = f"{items[item_idx][0]}"
 						if item_itm in item_list and item_list[item_itm]['drop'] and not items[item_idx][1]:
-							ret['items'].append({'type': item_list[item_itm]['type'], 'name': item_list[item_itm]['name'], 'price': item_list[item_itm]['price'], 'skill': max(pickpocket, pick_difficulty[idx])})
+							ret['items'].append({'type': item_list[item_itm]['type'], 'name': item_list[item_itm]['name'], 'price': item_list[item_itm]['price'], 'slot': sltsteal[idx], 'skill': pickpocket})
 							if items[item_idx][2] > 1 and item_list[item_itm]['type'] in ['Books & misc', 'Arrows', 'Potion', 'Scroll', 'Bullets', 'Darts', 'Bolts', 'Gold pieces', 'Gem', 'Wand', 'Containers/eye/broken armor', 'Books/Broken shields/bracelets', 'Familiars/Broken swords/earrings', 'Fur/pelt']:
 								ret['items'][-1]['quantity'] = items[item_idx][2]
 		return ret
@@ -185,8 +229,7 @@ def view_area(are_file, cre_dict):
 # Given a store, return a list of items that can be stolen and how difficult they are
 # https://gibberlings3.github.io/iesdp/file_formats/ie_formats/sto_v1.htm
 def view_store(sto_file):
-	ret = {'items': [], 'difficult': 0}
-	print(sto_file)
+	ret = {'items': [], 'difficult': 0, 'slot': '"Store"'}
 	with open(sto_file, 'rb') as file:
 		try:
 			text = file.read()
@@ -195,7 +238,7 @@ def view_store(sto_file):
 		# Check That this is a CRE file
 		assert (mystr(text[0x0:0x0+4]) == 'STOR'), f"Invalid File Type: '{mystr(text[0x0:0x0+4])}'"
 		version = mystr(text[0x4:0x4+4]).lower()
-		# Check version since eah one stores files differently
+		# Check version since each one stores files differently
 		if version == 'v1.0':
 			steal = 0x10
 			diff = 0x20
@@ -276,6 +319,13 @@ def walk_game(game, game_str):
 	cre_dict = {}
 	# Go through all areas and check all creatures for ones that can be pickpocketed
 	are_dict = {}
+	# store how difficult it is to pickpocket a slot
+	sltsteal = load_pickpocketting(game)
+	# store how dex modifies pickpocket
+	skilldex = load_dex_bonus(game)
+	# store how race affects pickpocket
+	skillrac = load_race_lookup(game)
+
 	for r, d, f in os.walk(f"{game}_files"):
 		itm_files = []
 		cre_files = []
@@ -329,7 +379,7 @@ def walk_game(game, game_str):
 			item = view_item(os.path.join(r, file), game)
 			# note items with no name
 			if not item['name']:
-				item['name'] = f"{file}{'' if file.startswith('rnd') else ' (TLK missing name)'}"
+				item['name'] = f"{file}{'' if file.startswith('rnd') else ' (not in TLK)'}"
 			# remove EET items that appear to be script/difficulty related, ignore items with no proper name
 			if not (item['name'].startswith('dw#') and item['price'] == 0):
 				items[file[:-4].lower()] = item
@@ -340,7 +390,7 @@ def walk_game(game, game_str):
 		for c, file in enumerate(cre_files):
 			if not c % tick:
 				print(f"{game} CRE: {c/len_f*100:.2f}")
-			person = view_char(os.path.join(r, file), items, game, dlg_store)
+			person = view_char(os.path.join(r, file), items, game, dlg_store, sltsteal, skilldex, skillrac)
 			if person['items'] or 'stores' in person:
 				if not person['name']:
 					person['name'] = file[:-4]
@@ -380,7 +430,7 @@ def walk_game(game, game_str):
 	# Store possible values that can appear in various columns to toggle those rows
 	areas = set()
 	item_types = {}
-	buf = ['data = [', '\t["Area", "NPC", "XP", "Gold Carried", "Pickpocket Skill", "Item Price (base)", "Item Type", "Item"],']
+	buf = ['data = [', '\t["Area", "NPC", "XP", "Gold Carried", "Slot Difficulty", "Pickpocket Skill", "Item Price (base)", "Item Type", "Item"],']
 	for are in sorted(are_dict):
 		for cre in sorted(are_dict[are], key=lambda i: i['name']):
 			for itm in sorted(cre['items'], key=lambda i: i['price'], reverse=True):
@@ -388,7 +438,7 @@ def walk_game(game, game_str):
 				if itm["type"] not in item_types:
 					item_types[itm["type"]] = set()
 				item_types[itm["type"]].add(itm["name"])
-				buf.append(f'\t["{are}", "{cre["name"]}", {cre["xp"]}, {cre["gold"]}, {itm["skill"]}, {itm["price"]}, "{itm["type"]}", "{itm["name"] + " (" + str(itm["quantity"]) + ")" if "quantity" in itm else itm["name"]}", "{itm["type"]}_{itm["name"]}"],')
+				buf.append(f'\t["{are}", "{cre["name"]}", {cre["xp"]}, {cre["gold"]}, {itm["slot"]}, {itm["skill"]}, {itm["price"]}, "{itm["type"]}", "{itm["name"] + " (" + str(itm["quantity"]) + ")" if "quantity" in itm else itm["name"]}", "{itm["type"]}_{itm["name"]}"],')
 			if 'stores' in cre:
 				for sto in sorted(cre['stores'], reverse=True):
 					areas.add(are)
@@ -400,14 +450,14 @@ def walk_game(game, game_str):
 						if itm["type"] not in item_types:
 							item_types[itm["type"]] = set()
 						item_types[itm["type"]].add(itm["name"])
-						buf.append(f'\t["{are}", "{cre["name"]} (Store)", {cre["xp"]}, {cre["gold"]}, {stores[sto]["skill"]}, {itm["price"]}, "{itm["type"]}", "{itm["name"]} ({itm_count})", "{itm["type"]}_{itm["name"]}"],')
+						buf.append(f'\t["{are}", "{cre["name"]} (Store)", {cre["xp"]}, {cre["gold"]}, {stores[sto]["slot"]}, {stores[sto]["skill"]}, {itm["price"]}, "{itm["type"]}", "{itm["name"]} ({itm_count})", "{itm["type"]}_{itm["name"]}"],')
 
 	buf.append(']\n')
 
 	with open(f'docs/{game}_table_data.py', 'w', encoding="utf-8") as f:
 		f.write('\n'.join(buf))
 
-	buf = [f'gamestr = "{game_str}"', 'headers = ["Area", "NPC", "XP", "Gold Carried", "Pickpocket Skill", "Item Price (base)", "Item Type", "Item"]\n', 'areas = [']
+	buf = [f'gamestr = "{game_str}"', 'headers = ["Area", "NPC", "XP", "Gold Carried", "Slot Difficulty", "Pickpocket Skill", "Item Price (base)", "Item Type", "Item"]\n', 'areas = [']
 	for a in sorted(areas):
 		buf.append(f'\t"{a}",')
 	buf.append(']\n')
@@ -438,7 +488,7 @@ def main():
 	for game, game_str in vals:
 		walk_game(game, game_str)
 
-	with open('docs\\index.html', 'w') as f:
+	with open('docs/index.html', 'w') as f:
 		f.write(root_index.format('</p><p>'.join([f'<a href="{x[0]}.html" target="_blank">{x[1]}</a>' for x in vals])))
 
 
