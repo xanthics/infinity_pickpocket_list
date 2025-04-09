@@ -229,7 +229,7 @@ def view_area(are_file, cre_dict):
 # Given a store, return a list of items that can be stolen and how difficult they are
 # https://gibberlings3.github.io/iesdp/file_formats/ie_formats/sto_v1.htm
 def view_store(sto_file):
-	ret = {'items': [], 'difficult': 0, 'slot': '"Store"'}
+	ret = {'items': [], 'difficult': 0, 'slot': '0'}
 	with open(sto_file, 'rb') as file:
 		try:
 			text = file.read()
@@ -379,7 +379,7 @@ def walk_game(game, game_str):
 			item = view_item(os.path.join(r, file), game)
 			# note items with no name
 			if not item['name']:
-				item['name'] = f"{file}{'' if file.startswith('rnd') else ' (not in TLK)'}"
+				item['name'] = f"{file}{'' if file.lower().startswith('rnd') else ' (not in TLK)'}"
 			# remove EET items that appear to be script/difficulty related, ignore items with no proper name
 			if not (item['name'].startswith('dw#') and item['price'] == 0):
 				items[file[:-4].lower()] = item
@@ -424,7 +424,8 @@ def walk_game(game, game_str):
 	if npc_list:
 		are_dict['unknown'] = []
 		for npc in npc_list:
-			cre_dict[npc]['name'] += f" ({npc})"
+			if npc.lower() != cre_dict[npc]['name'].lower():
+				cre_dict[npc]['name'] += f" ({npc})"
 			are_dict['unknown']. append(cre_dict[npc])
 
 	# Store possible values that can appear in various columns to toggle those rows

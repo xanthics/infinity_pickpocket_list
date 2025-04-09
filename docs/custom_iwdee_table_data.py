@@ -26,7 +26,7 @@ data = [
 	["ar2108 - Kuldahar - Airship of Oswald Fiddlebender", "Oswald Fiddlebender", 975, 23, 10, 0, 500, "Potion", "Oil of Fiery Burning", "Potion_Oil of Fiery Burning"],
 	["ar2108 - Kuldahar - Airship of Oswald Fiddlebender", "Oswald Fiddlebender", 975, 23, 10, 0, 250, "Potion", "Potion of Firebreath", "Potion_Potion of Firebreath"],
 	["ar2112 - Kuldahar - Home of Arundel - first floor", "Arundel", 3000, 0, 10, 0, 10000, "Ring", "Ring of Free Action", "Ring_Ring of Free Action"],
-	["ar3301 - Vale of Shadows - Temple of Myrkul", "Therik", 5000, 0, 10, 0, 0, "Books & misc", "RNDTRE50.ITM (not in TLK)", "Books & misc_RNDTRE50.ITM (not in TLK)"],
+	["ar3301 - Vale of Shadows - Temple of Myrkul", "Therik", 5000, 0, 10, 0, 0, "Books & misc", "RNDTRE50.ITM", "Books & misc_RNDTRE50.ITM"],
 	["ar3501 - Vale of Shadows - Tomb of Kresselack - first level", "Mytos", 6000, 0, 10, 0, 8000, "Potion", "Potion of Holy Transference", "Potion_Potion of Holy Transference"],
 	["ar4003 - Dragon's Eye - third dungeon level (Presio)", "Undead Lieutenant", 7000, 0, 10, 0, 25, "Large sword", "Bastard Sword ", "Large sword_Bastard Sword "],
 	["ar4003 - Dragon's Eye - third dungeon level (Presio)", "Undead Lieutenant", 7000, 0, 10, 0, 25, "Large sword", "Bastard Sword ", "Large sword_Bastard Sword "],

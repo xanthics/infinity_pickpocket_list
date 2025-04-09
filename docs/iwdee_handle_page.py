@@ -84,7 +84,10 @@ def sort(evt, elt):
 			elt.data.order = [0 for _ in elt.data.header]
 		order = elt.data.order[column]
 		# Changing the value of attribute "items" will trigger re-rendering the template
-		elt.data.items.sort(key=lambda x: x[column], reverse=order)
+		if type(elt.data.items[column][0]) is str:
+			elt.data.items.sort(key=lambda x: x[column].lower(), reverse=order)
+		else:
+			elt.data.items.sort(key=lambda x: x[column], reverse=order)
 		# next time, sort this column the other way
 		elt.data.order[column] = 1 - order
 	except KeyError as err:
@@ -159,7 +162,7 @@ def check_visit():
 	if not check_storage('visited'):
 		set_storage('visited', 'True')
 		# By default hide some common/low value items and some of the columns
-		for k_val in ['XP', 'Gold Carried', 'Item Type', 'unknown', 'Amulet_Amulet of the Keeper of Secrets Under the Mountain', 'Amulet_Bloodstone Amulet', "Amulet_Galvena's Medallion", 'Amulet_Gold Necklace', 'Amulet_Greenstone Amulet',
+		for k_val in ['XP', 'Gold Carried', 'Item Type', 'Amulet_Amulet of the Keeper of Secrets Under the Mountain', 'Amulet_Bloodstone Amulet', "Amulet_Galvena's Medallion", 'Amulet_Gold Necklace', 'Amulet_Greenstone Amulet',
 					  'Amulet_Keepsake Locket', 'Amulet_Pearl Necklace', 'Amulet_Rainbow Obsidian Necklace', 'Amulet_Silver Necklace', 'Amulet_Thrall Collar', "Armor_Adventurer's Robe", 'Armor_Chain Mail Armor', 'Armor_Leather Armor',
 					  'Armor_Leather Armor +1', 'Armor_Studded Leather Armor', 'Arrows_Acid Arrow +1', 'Arrows_Arrow', 'Arrows_Arrow +1', 'Arrows_Arrow of Biting', 'Arrows_Arrow of Fire', 'Arrows_Arrow of Ice', 'Arrows_Arrow of Piercing +1',
 					  'Arrows_Flaming Arrow', 'Axe_Battle Axe', 'Axe_Battle Axe +1', 'Axe_Throwing Axe', 'Bolts_Bolt', 'Bolts_Bolt +1', 'Bolts_Bolt of Biting ', 'Bolts_Bolt of Lightning', 'Bolts_Drow Bolt +1', 'Bolts_Drow Bolt of Sleep',

@@ -67,7 +67,7 @@ types = {
 		"MERNTOME.ITM (not in TLK)",
 		"Maiden Ilmadia's Badge",
 		"Manual of Gainful Exercise",
-		"RNDTRE50.ITM (not in TLK)",
+		"RNDTRE50.ITM",
 		"Tome of Clear Thought",
 		"Tome of Leadership and Influence",
 		"Tome of Understanding",

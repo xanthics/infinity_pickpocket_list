@@ -10,8 +10,9 @@
     </head>
     <body onload="brython(1)">
         <section class="main">
-            <p>Any store is percent chance to fail, not pickpocket skill.</p>
-            <p>When comparing slot difficulty and pickpocket skill, the maximum value of the two is your minimum chance to succeed.  For Pickpocket skill on target, you have a 1% chance of success for every point higher your skill is versus target, starting at 0 and scaling to 99.  </p>
+            <p>Stealing from a store is 1% chance of success per point above store skill, capping at 100%.  EG if the store has 15, then 16 gives you 1% chance to succeed.</p>
+            <p>Stealing from a target is 1% chance of success per point above target skill, minus 1%, capping at 99%. EG if the target has 15, then 17 gives you 1% chance to succeed.  Slot difficulty is the minimum required skill for any chance of success, and is then compared to pickpocket skill on target, if it exists.</p>
+            <p><a href="https://github.com/xanthics/infinity_pickpocket_list/issues/1">per this conversation</a></p>
             <div id="show_hide"></div>
             <div id="loading">
                 This page requires javascript in order to work correctly.
