@@ -84,7 +84,7 @@ def sort(evt, elt):
 			elt.data.order = [0 for _ in elt.data.header]
 		order = elt.data.order[column]
 		# Changing the value of attribute "items" will trigger re-rendering the template
-		if type(elt.data.items[column][0]) is str:
+		if type(elt.data.items[0][column]) is str:
 			elt.data.items.sort(key=lambda x: x[column].lower(), reverse=order)
 		else:
 			elt.data.items.sort(key=lambda x: x[column], reverse=order)
